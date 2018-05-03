@@ -1,0 +1,17 @@
+/* --duration-long-6x: */
+
+
+/* Color Detail displayed state  */
+.room-wrapper__button:hover .solid-overlay,
+.room-wrapper__button:hover .room-image-natural {
+  opacity: 0;
+}
+
+.room-wrapper__button:hover .color-info {
+  opacity: 1;
+  z-index: 4;
+}
+
+.room-wrapper__button:hover .logo-clipped {
+  transform: scale( 1, 1 ) translate( 0, 0 );
+}

@@ -1,0 +1,16 @@
+.color-list {
+    align-content: center;
+    background: #aaaaa5;
+    width: 30vw;
+}
+
+.color-list__color {
+    background: #bada55;
+    display: inline-block;
+    height: 9.99vw;
+    width: 8vw;
+}
+
+.color-list__color--active {
+    
+}

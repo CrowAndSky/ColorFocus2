@@ -1,0 +1,43 @@
+/* just for testing  */
+.navigation__wrapper {
+  display: none !important;
+}
+.slice__wrapper--full {
+  /* display: none; */
+}
+
+.EXAMPLE {
+  display: flex;
+  flex-direction: column;
+  height: var( --slice-wrapper-height );
+  justify-content: space-between;
+  top: var( --navigation-height );
+  transform: var( --slice-slider-translate );
+  transition-property: transform;
+  transition-duration: var( --duration-long );
+  width: 100%;
+  will-change: transform;
+}
+
+
+@media screen and ( orientation: landscape ) { /* landscape viewport, vertical rooms */
+}
+
+@media screen and ( min-width: 790px ) {
+
+}
+
+@media screen and ( min-width: 790px ) and ( orientation: landscape ){
+}
+
+@media screen and ( min-width: 900px ) {
+}
+
+@media screen and ( min-width: 1000px ) {
+}
+
+@media screen and ( min-width: 1100px ) {
+}
+
+@media screen and ( min-width: 1250px ) {
+}

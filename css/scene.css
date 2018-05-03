@@ -1,0 +1,14 @@
+.scene {    
+    left: 30vw;
+    width: 70vw;
+}
+
+.scene__room {
+    object-fit: cover;
+    opacity: 0.05;
+}
+
+.scene__room--tinted {
+    
+
+}
