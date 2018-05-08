@@ -132,7 +132,7 @@ $(document).ready( function(){
     let love = new ColorSet( [ [120, 100, 50], [0, 100, 50], [120, 100, 50], [120, 100, 50], [120, 100, 50] ] );
     love.findMatches( 0, 0, 100, 50);
     //love.findMatches( 0 );
-    //love.checkMasterIndex( 120 );
+    love.checkMasterIndex( 220 );
 });
 
 

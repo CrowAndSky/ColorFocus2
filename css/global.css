@@ -80,6 +80,7 @@ ul, li {
 }
 
 .color-list,
+.color-list__button,
 .scene,
 .scene__room {
     height: 100%;

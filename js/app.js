@@ -14,26 +14,15 @@ mainRAFloop,
 x,
 i;
 
-let tintScene = function( hue, saturation, luminosity ) {
-   // sepia: hsl(38, 24.5%, 60%);
-// H:  170 - 38             ->  132°
-// S:  100 + (24.5 - 21.3)  ->  103.2%  (relative to base 100% =  3.2%)
-// L:  100 + (51.2 - 60.0)  ->   91.2%  (relative to base 100% = -8.8%)
-    let H =  hue - 38,
-        S =  100 + ( 24.5 - saturation ),
-        L =  100 + ( luminosity - 60.0),
-        theFilter = `filter: brightness( 50% ) sepia( 1 )  hue-rotate( ${H}deg ) saturate( ${S}% ) brightness( ${L}% )`;
-
-    //filter: brightness(50%) sepia(1)  hue-rotate(132deg) saturate(103.2%) brightness(91.2%);
-    console.log('########## theFilter: ' + theFilter);
-
-
+var tintScene = function( hue, saturation, luminosity ) {
+    document.body.style.setProperty( '--sceneTintColor', 'HSL( 11.02301, 53.0004346724%, 53.002438% )' );
 }
 /* ------------------ ### initDOM ### ------------------ */
 var initDOM = function( event ) {
     console.log('########## 1');
     $( '.color-list__button' ).click( function(){
-        tintScene( 11.02301, 53.0004346724, 53.002438 );
+        console.log('########## clicked');
+        tintScene();
     })
 };
 
@@ -109,6 +98,20 @@ const appLoop = function( event ) {
 
 
 
+   // sepia: hsl(38, 24.5%, 60%);
+// H:  170 - 38             ->  132°
+// S:  100 + (24.5 - 21.3)  ->  103.2%  (relative to base 100% =  3.2%)
+// L:  100 + (51.2 - 60.0)  ->   91.2%  (relative to base 100% = -8.8%)
+    let H =  hue - 38,
+        // S =  100 + ( 24.5 - saturation ),
+        // L =  100 + ( luminosity - 60.0),
+        S =  100 * ( saturation / 24.5),
+        L =  100 * ( luminosity / 60.0),
+        // S = 408.16326531,
+        // L = 166.66666667,
+
+        // theFilter = `brightness( 50% ) sepia( 1 )  hue-rotate( ${H}deg ) saturate( ${S}% ) brightness( ${L}% )`;
+        theFilter = `brightness( 50% ) sepia( 1 )  hue-rotate( ${H}deg ) saturate( ${S}% ) brightness( ${L}% )`;
 
 
 

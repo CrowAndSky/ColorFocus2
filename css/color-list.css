@@ -1,14 +1,18 @@
 .color-list {
-    align-content: center;
-    background: #aaaaa5;
+    align-content: stretch;
+    align-items: stretch;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
     width: 30vw;
 }
 
 .color-list__color {
-    background: #bada55;
-    display: inline-block;
-    height: 9.99vw;
-    width: 8vw;
+    /* display: inline-block; */
+    opacity: 0.1;
+    position: relative;
+    width: 33%;
 }
 
 .color-list__color--active {
