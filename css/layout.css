@@ -1,11 +1,3 @@
-/* just for testing  */
-.navigation__wrapper {
-  display: none !important;
-}
-.slice__wrapper--full {
-  /* display: none; */
-}
-
 .EXAMPLE {
   display: flex;
   flex-direction: column;

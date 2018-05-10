@@ -1,5 +1,6 @@
 .scene {
     background-color: var( --sceneTintColor );
+    display: none;
     left: 30vw;
     width: 70vw;
 }
@@ -7,26 +8,17 @@
 .scene__room {
     background-color: var( --sceneTintColor );
     object-fit: cover;
-    /* opacity: 0; */
 }
 
 .scene__room--tinted {
     background-color: var( --sceneTintColor );
-    /* filter: grayscale(100) brightness(0.85) contrast(1.75); */
     filter: grayscale(100);
     mix-blend-mode: multiply;
-    /* -webkit-mask-image: url( '../images/room-mask.png' );
-    -webkit-mask-size: cover;
-    -webkit-mask-position: 50% 50%; */
-
-    /* opacity: 0.001; */
 }
 
 .scene__room--natural {
-    /* mix-blend-mode: multiply; */
     -webkit-mask-image: url( '../images/room-mask.png' );
     -webkit-mask-size: cover;
     -webkit-mask-position: 50% 50%;
     mask-size: cover;
-    /* z-index: 3; */
   }

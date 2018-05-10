@@ -10,6 +10,7 @@
 	<link rel="stylesheet" href="./css/scene.css">
 	<link rel="stylesheet" href="./css/color-list.css">
 	<link rel="stylesheet" href="./css/state.css">
+	<link rel="stylesheet" href="./css/filter.css">
 </head>
 
 <body>
@@ -20,23 +21,69 @@
 	<script src="./js/app.js" type="text/javascript"></script>
 
 <div id="app-wrapper" class="">
-	<ul class="color-list">
-		<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 324.0029943, 5.000843842%, 71% );"></button></li>
-		<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 32.0001, 99.98998848%, 13.002387% );"></button></li>
-		<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 224.0029943, 5.000843842%, 21% );"></button></li>
-		<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 11.02301, 53.0004346724%, 53.002438% );"></button></li>
-		<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 324.0029943, 5.000843842%, 51% );"></button></li>
-		<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 124.0029943, 65.000843842%, 21% );"></button></li>
-		<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 244.0029943, 65.000843842%, 11% );"></button></li>
-		<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 224.0029943, 55.000843842%, 41% );"></button></li>
-		<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 154.0029943, 25.000843842%, 61% );"></button></li>
-		<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 84.0029943, 65.000843842%, 61% );"></button></li>
-		<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 200.0029943, 55.000843842%, 21% );"></button></li>
-		<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 324.0029943, 5.000843, 17% );"></button></li>
-	</ul>
+	<div class="color-set-wrapper">
+		<div class="filter-wrapper">
+			<ul class="family-list">
+				<li class="family-list__color"><button class="family-list__button" style="background-color:hsl( 0, 100%, 50% );"></button></li>
+				<li class="family-list__color"><button class="family-list__button" style="background-color:hsl( 39, 100%, 50% );"></button></li>
+				<li class="family-list__color"><button class="family-list__button" style="background-color:hsl( 60, 100%, 50% );"></button></li>
+				<li class="family-list__color"><button class="family-list__button" style="background-color:hsl( 121, 50%, 40% );"></button></li>
+				<li class="family-list__color"><button class="family-list__button" style="background-color:hsl( 241, 98%, 46% );"></button></li>
+				<li class="family-list__color"><button class="family-list__button" style="background-color:hsl( 300, 100%, 25% );"></button></li>
+				<li class="family-list__color"><button class="family-list__button" style="background-color:hsl( 39, 25%, 50% );"></button></li>
+				<li class="family-list__color"><button class="family-list__button" style="background-color:hsl( 300, 25%, 90% );"></button></li>
+			</ul>
+			
+			<ul class="value-list">
+				<li class="value-list__color"><button class="value-list__button" style="background-color:hsl( 0, 0%, 10% );"></button></li>
+				<li class="value-list__color"><button class="value-list__button" style="background-color:hsl( 0, 0%, 26% );"></button></li>
+				<li class="value-list__color"><button class="value-list__button" style="background-color:hsl( 0, 0%, 42% );"></button></li>
+				<li class="value-list__color"><button class="value-list__button" style="background-color:hsl( 0, 0%, 58% );"></button></li>
+				<li class="value-list__color"><button class="value-list__button" style="background-color:hsl( 0, 0%, 74% );"></button></li>
+				<li class="value-list__color"><button class="value-list__button" style="background-color:hsl( 0, 0%, 90% );"></button></li>
+			</ul>
+		</div>
+
+		<ul class="color-list">
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 324.0029943, 5.000843842%, 71% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 32.0001, 99.98998848%, 13.002387% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 224.0029943, 5.000843842%, 21% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 11.02301, 53.0004346724%, 53.002438% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 324.0029943, 5.000843842%, 51% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 124.0029943, 65.000843842%, 21% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 244.0029943, 65.000843842%, 11% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 224.0029943, 55.000843842%, 41% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 154.0029943, 25.000843842%, 61% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 84.0029943, 65.000843842%, 61% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 200.0029943, 55.000843842%, 21% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 324.0029943, 5.000843%, 17% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 324.0029943, 5.000843842%, 71% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 32.0001, 99.98998848%, 13.002387% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 224.0029943, 5.000843842%, 21% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 11.02301, 53.0004346724%, 53.002438% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 324.0029943, 5.000843842%, 51% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 124.0029943, 65.000843842%, 21% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 244.0029943, 65.000843842%, 11% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 224.0029943, 55.000843842%, 41% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 154.0029943, 25.000843842%, 61% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 84.0029943, 65.000843842%, 61% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 200.0029943, 55.000843842%, 21% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 324.0029943, 5.000843%, 17% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 324.0029943, 5.000843842%, 71% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 32.0001, 99.98998848%, 13.002387% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 224.0029943, 5.000843842%, 21% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 11.02301, 53.0004346724%, 53.002438% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 324.0029943, 5.000843842%, 51% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 124.0029943, 65.000843842%, 21% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 244.0029943, 65.000843842%, 11% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 224.0029943, 55.000843842%, 41% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 154.0029943, 25.000843842%, 61% );"></button></li>
+			<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 84.0029943, 65.000843842%, 61% );"></button></li>
+			
+		</ul>
+	</div>
 
 	<div class="scene">
-		
 		<img class="scene__room scene__room--tinted" src="./images/room.jpg" alt="">
 		<img class="scene__room scene__room--natural" src="./images/room.jpg" alt="">
 	</div>

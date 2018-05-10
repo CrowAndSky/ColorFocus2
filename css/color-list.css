@@ -1,18 +1,24 @@
 .color-list {
-    align-content: stretch;
-    align-items: stretch;
-    display: flex;
+    /* align-content: stretch; */
+    /* align-items: stretch; */
+    /* display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    width: 30vw;
+    flex-wrap: wrap; */
+    height:70%;
+    /* justify-content: space-evenly; */
+    /* width: 30vw; */
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    
+    grid-gap: 0.15vw;
+    padding: 0.6vmax;
+		/* grid-template-columns: repeat(auto-fit, minmax(20px,1fr)); */
 }
 
 .color-list__color {
-    /* display: inline-block; */
-    opacity: 0.1;
+    opacity: 0.3;
     position: relative;
-    width: 33%;
 }
 
 .color-list__color--active {

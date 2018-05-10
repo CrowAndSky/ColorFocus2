@@ -11,6 +11,7 @@ html, button, body, div, span, section, ul, li, h1, h2, h3, h4, h5, p {
 button {
   background: transparent;
   border: none;
+  cursor: pointer;
   line-height: normal;
   width: auto;
   overflow: visible;
@@ -61,16 +62,8 @@ ul, li {
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-@font-face {
-  font-family: 'Alfa Slab One';
-  font-style: normal;
-  font-weight: 400;
-  src: local( 'Alfa Slab One Regular' ), local( 'AlfaSlabOne-Regular' ), url( ../fonts/alpha-slab.woff2 ) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
-}
-
 /* ------------------ ############ GENERAL ############ ------------------ */
-#perfect-app-wrapper {
+#app-wrapper {
   background-color: #fff;
   height: 100%;
   left: 0;
@@ -79,7 +72,8 @@ ul, li {
   width: 100vw;
 }
 
-.color-list,
+.color-set-wrapper,
+/* .color-list, */
 .color-list__button,
 .scene,
 .scene__room {
