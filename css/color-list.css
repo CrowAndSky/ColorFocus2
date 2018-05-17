@@ -1,19 +1,9 @@
 .color-list {
-    /* align-content: stretch; */
-    /* align-items: stretch; */
-    /* display: flex;
-    flex-direction: row;
-    flex-wrap: wrap; */
-    height:70%;
-    /* justify-content: space-evenly; */
-    /* width: 30vw; */
-
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    
     grid-gap: 0.15vw;
+    grid-template-columns: 1fr 1fr 1fr;
+    height:70%;
     padding: 0.6vmax;
-		/* grid-template-columns: repeat(auto-fit, minmax(20px,1fr)); */
 }
 
 .color-list__color {
@@ -23,4 +13,40 @@
 
 .color-list__color--active {
     
+}
+
+@media ( min-aspect-ratio: 2/3 ) {
+    .color-list {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media ( min-aspect-ratio: 3/2 ) {
+    .color-list {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media ( min-aspect-ratio: 2/1 ) {
+    .color-list {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media ( min-aspect-ratio: 5/2 ) {
+    .color-list {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media ( min-aspect-ratio: 3/1 ) {
+    .color-list {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media ( min-aspect-ratio: 4/1 ) {
+    .color-list {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
 }

@@ -1,9 +1,10 @@
 /* ------------------ ############ RESETS ############ ------------------ */
 html, button, body, div, span, section, ul, li, h1, h2, h3, h4, h5, p {
   box-sizing: border-box;
-  color: #222;
+  color: #111112;
   font-family: 'Raleway', sans-serif;
-  font-weight: 200;
+  font-size: 16px;
+  font-weight: 400;
   margin: 0;
   padding: 0;
 }
@@ -84,6 +85,12 @@ ul, li {
     top: 0;
     width: 100%;
     z-index: 1;
+}
+
+/* ------------------ ############ VARIABLES ############ ------------------ */
+body {
+  --tintedSceneFilter: initial;
+  --sceneTintColor: #fff;
 }
 
 /* ------------------ ############ APP STATE - ROOM DETAIL ############ ------------------ */
