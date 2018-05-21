@@ -1,6 +1,6 @@
 .scene {
     background-color: var( --sceneTintColor );
-    display: none;
+    /* display: none; */
     left: 30vw;
     width: 70vw;
 }
