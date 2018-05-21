@@ -2,7 +2,7 @@
 
 let allColors = [],
     colorDiff,
-    firstColor = [ 2849, 331.15384615384613, 41.26984126984129, 50.588235294117645 ],
+    //firstColor = [ 2849, 331.15384615384613, 41.26984126984129, 50.588235294117645 ],
     chips = '',
     colorInHSL;
 
@@ -14,29 +14,44 @@ class ColorSet {
         //
         // A given set will have the HSL for each of its members set by calling buildNextSet() in the previous set
     // -------------------------------------------------
+/*  -------------------------------------------------
+EXAMPLE of a color in colorsComplete:
+"Exuberant Pink","6840","331.15384615384613","41.26984126984129%","50.588235294117645%","Dragon Fruit","6855","343.1775700934579","51.19617224880384%","59.01960784313726%","Cherries Jubilee",....
+
+EXAMPLE of a color in colorsComplete: (hue first, index in colorsComplete of that color second
+const colorsByH = [ 0,884, 0,1446, 0,911, ....
+------------------------------------------------- */
+
+/*  -------------------------------------------------
+------------------------------------------------- */
 
     constructor( colorSet ) {
         this._colorSet = colorSet;
+        this.$parserWrapper = $( '#parser-wrapper' );
     }
 
     testMatchFitness( hueArrayIndex, startingHue = 180, startSaturation = 50, startLuminisity = 50 ) {
-        console.log('########## i: ' + hueArrayIndex);
-        // var indexOfNextHue = parseInt( colorsByH[ 2849 + index ] , 10), // This gives you the next master index of the next hue indexed color
+        /*  -------------------------------------------------
+        -------------------------------------------------  */
+        console.log('########## startSaturation: ' + startSaturation);
         var indexOfNextHue = parseInt( colorsByH[ hueArrayIndex ] , 10), // This gives you the next master index of the next hue indexed color
-        //console.log('########## indexOfNextHue: ' + indexOfNextHue);
-            hue = parseFloat( colorsAll2[ indexOfNextHue * 5 + 2 ], 10),
-            saturation = parseFloat( colorsAll2[ indexOfNextHue * 5 + 3 ], 10),
-            luminance = parseFloat( colorsAll2[ indexOfNextHue * 5 + 4 ], 10),
+            hue = parseFloat( colorsComplete[ indexOfNextHue * 5 + 2 ], 10),
+            saturation = parseFloat( colorsComplete[ indexOfNextHue * 5 + 3 ], 10),
+            luminance = parseFloat( colorsComplete[ indexOfNextHue * 5 + 4 ], 10),
             hueDiff = Math.abs( startingHue - hue ),
             satDiff = Math.abs( startSaturation - saturation ),
             lumDiff = Math.abs( startLuminisity - luminance );
         if ( satDiff + lumDiff < 35 ) {
-            // allColors.push( colorsAll2[ ( indexOfNextHue * 5 ) + 2 ] + ',' + parseFloat( colorsAll2[ indexOfNextHue * 5 + 3 ], 10) + '%,' + parseFloat( colorsAll2[ indexOfNextHue * 5 + 4 ], 10) + '%"');
-            allColors.push( `${colorsAll2[ ( indexOfNextHue * 5 ) + 2 ]},${saturation}%,${luminance}%` );
+            console.log('addding');
+            allColors.push( `${hue},${saturation}%,${luminance}%` );
         }
     }
 
     findMatches( hueArrayIndex, startingHue = 180, startSaturation = 50, startLuminisity = 50 ) {
+        /*  -------------------------------------------------
+        Find the 50 next closest colors by Hue, moving forward from the current color. For each color test it's fitness as a match.
+        Then repeat with 50 more colors, moving baackward from the current color.
+        ------------------------------------------------- */
         let nextArrayIndex = hueArrayIndex;
 
         for( var i = 2; i < 100; i += 2 ) { // Starting at 2 because the master index value FOLLOWS the hue value in that array, and we want to start with the NEXT color
@@ -46,10 +61,11 @@ class ColorSet {
                 nextArrayIndex += 2;
             }
 
-            this.testMatchFitness( nextArrayIndex, 0, 100, 50);
+            // this.testMatchFitness( nextArrayIndex, 0, 100, 50);
+            this.testMatchFitness( nextArrayIndex, startingHue, startSaturation, startLuminisity);
         }
 
-        nextArrayIndex = hueArrayIndex;
+        nextArrayIndex = hueArrayIndex; // Setting this back to the inital value so that we can work our way down
 
         for( var i = -2; i > -100; i -= 2 ) { // Starting at -2 because the master index value FOLLOWS the hue value in that array, and we want to start with the PRECIOUS color
             if ( nextArrayIndex - 2 < 1 ) {
@@ -58,21 +74,23 @@ class ColorSet {
                 nextArrayIndex -= 2;
             }
             
-            this.testMatchFitness( nextArrayIndex, 0, 100, 50);
+            this.testMatchFitness( nextArrayIndex, startingHue, startSaturation, startLuminisity);
         }
     }
 
     checkMasterIndex( hue ) {
-        for (  var x = 0; x < colorsAll2.length; x++ ) {
-            var indexOfNextHue = parseInt( x * 5 , 10);
-            var z = parseFloat( colorsAll2[ x * 5 + 2 ], 10);
-            if ( Math.abs( hue - z) < 5) {
-                //return z;
-                console.log('########## z: ' + z);
-                //allColors.push( colorsAll2[ indexOfNextHue + 2 ] + ',' + colorsAll2[ indexOfNextHue + 3 ] + ',' + colorsAll2[ indexOfNextHue + 4 ] );
-                allColors.push( `${colorsAll2[ indexOfNextHue + 2 ]},${colorsAll2[ indexOfNextHue + 3 ]},${colorsAll2[ indexOfNextHue + 4 ]}` );
-            }   
-        }
+        /*  -------------------------------------------------
+        ------------------------------------------------- */
+        // for (  var x = 0; x < colorsAll2.length; x++ ) {
+        //     var indexOfNextHue = parseInt( x * 5 , 10);
+        //     var z = parseFloat( colorsAll2[ x * 5 + 2 ], 10);
+        //     if ( Math.abs( hue - z) < 5) {
+        //         //return z;
+        //         console.log('########## z: ' + z);
+        //         //allColors.push( colorsAll2[ indexOfNextHue + 2 ] + ',' + colorsAll2[ indexOfNextHue + 3 ] + ',' + colorsAll2[ indexOfNextHue + 4 ] );
+        //         allColors.push( `${colorsAll2[ indexOfNextHue + 2 ]},${colorsAll2[ indexOfNextHue + 3 ]},${colorsAll2[ indexOfNextHue + 4 ]}` );
+        //     }   
+        // }
         _.each ( allColors, function( color, index ){
             console.log(color);
             chips = chips + '<div class="chip" style="background:hsl(' + color + ')"></div>';
@@ -80,40 +98,42 @@ class ColorSet {
 
         console.log( allColors);
 
-        $parserWrapper.append(chips);
+        this.$parserWrapper.append(chips);
     }
-}
+}  // End ColorSet Class
 
-const $parserWrapper = $( '#parser-wrapper' ),
-    buildNextColor = function( i ) {
-        //console.log('########## i: ' + i);
-        var indexOfNextHue = parseInt( colorsByH[ 2849 + i ] , 10); // This gives you the next master index of the next hue indexed color
-        //console.log('########## indexOfNextHue: ' + indexOfNextHue);
-        var satDiff = Math.abs( 41.26984126984129 - parseFloat( colorsAll2[ indexOfNextHue * 5 + 3 ], 10) );     //slice(0, -1);
-        var lumDiff = Math.abs( 50.588235294117645 - parseFloat( colorsAll2[ indexOfNextHue * 5 + 4 ], 10) );     //slice(0, -1);
-        if ( satDiff + lumDiff < 35 ) {
-            allColors.push( colorsAll2[ ( indexOfNextHue * 5 ) + 2 ] + ',' + parseFloat( colorsAll2[ indexOfNextHue * 5 + 3 ], 10) + '%,' + parseFloat( colorsAll2[ indexOfNextHue * 5 + 4 ], 10) + '%"');
-        }
-    },
-    recommendColors = function() {    
-        /* colorsByHue is listed by hue first, master index second */
 
-        for( var i = 2; i < 100; i += 2 ) {
-            buildNextColor( i );
-        }
 
-        for( var i = -2; i > -100; i -= 2 ) {
-            //console.log('########## running');
-            buildNextColor( i );
-        }
+// const $parserWrapper = $( '#parser-wrapper' );
+    // buildNextColor = function( i ) {
+    //     //console.log('########## i: ' + i);
+    //     var indexOfNextHue = parseInt( colorsByH[ 2849 + i ] , 10); // This gives you the next master index of the next hue indexed color
+    //     //console.log('########## indexOfNextHue: ' + indexOfNextHue);
+    //     var satDiff = Math.abs( 41.26984126984129 - parseFloat( colorsAll2[ indexOfNextHue * 5 + 3 ], 10) );     //slice(0, -1);
+    //     var lumDiff = Math.abs( 50.588235294117645 - parseFloat( colorsAll2[ indexOfNextHue * 5 + 4 ], 10) );     //slice(0, -1);
+    //     if ( satDiff + lumDiff < 35 ) {
+    //         allColors.push( colorsAll2[ ( indexOfNextHue * 5 ) + 2 ] + ',' + parseFloat( colorsAll2[ indexOfNextHue * 5 + 3 ], 10) + '%,' + parseFloat( colorsAll2[ indexOfNextHue * 5 + 4 ], 10) + '%"');
+    //     }
+    // },
+    // recommendColors = function() {    
+    //     /* colorsByHue is listed by hue first, master index second */
 
-        _.each ( allColors, function( color, index ){
-            //console.log( allColors[ index ] );
-            chips = chips + '<div class="chip" style="background:hsl(' + allColors[ index * 3 ] + ')"></div>';
-        });
+    //     for( var i = 2; i < 100; i += 2 ) {
+    //         buildNextColor( i );
+    //     }
 
-        $parserWrapper.append(chips);
-    };
+    //     for( var i = -2; i > -100; i -= 2 ) {
+    //         //console.log('########## running');
+    //         buildNextColor( i );
+    //     }
+
+    //     _.each ( allColors, function( color, index ){
+    //         //console.log( allColors[ index ] );
+    //         chips = chips + '<div class="chip" style="background:hsl(' + allColors[ index * 3 ] + ')"></div>';
+    //     });
+
+    //     $parserWrapper.append(chips);
+    // };
 
 /*
 
@@ -126,13 +146,15 @@ TO DO HERE:
 */
 
 $(document).ready( function(){
+    //const $parserWrapper = $( '#parser-wrapper' );
 
     //console.log('########## colorsAll2.length: ' + colorsAll2.length/5);
     //recommendColors();
-    let love = new ColorSet( [ [120, 100, 50], [0, 100, 50], [120, 100, 50], [120, 100, 50], [120, 100, 50] ] );
-    love.findMatches( 0, 0, 100, 50);
+    //let love = new ColorSet( [ [120, 100, 50], [0, 100, 50], [120, 100, 50], [120, 100, 50], [120, 100, 50] ] );
+    let love = new ColorSet();
+    love.findMatches( 2849, 331.15384615384613, 41.26984126984129, 50.588235294117645 );
     //love.findMatches( 0 );
-    love.checkMasterIndex( 220 );
+    love.checkMasterIndex();
 });
 
 
