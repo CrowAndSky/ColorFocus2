@@ -17,6 +17,7 @@ class ColorSet {
 /*  -------------------------------------------------
 EXAMPLE of a color in colorsComplete:
 "Exuberant Pink","6840","331.15384615384613","41.26984126984129%","50.588235294117645%","Dragon Fruit","6855","343.1775700934579","51.19617224880384%","59.01960784313726%","Cherries Jubilee",....
+The index of Exuberant Pink in colorsComplete is 0, its index in colorsByH is 2848 for its hue value
 
 EXAMPLE of a color in colorsComplete: (hue first, index in colorsComplete of that color second
 const colorsByH = [ 0,884, 0,1446, 0,911, ....
@@ -28,13 +29,21 @@ const colorsByH = [ 0,884, 0,1446, 0,911, ....
     constructor( colorSet ) {
         this._colorSet = colorSet;
         this.$parserWrapper = $( '#parser-wrapper' );
+        this.wireChipHandlers();
+    }
+
+    wireChipHandlers() {
+        this.$parserWrapper.on( 'click', '.chip',  function(){
+            console.log( $(this).data( 'hueIndex' ) );
+        });
     }
 
     testMatchFitness( hueArrayIndex, startingHue = 180, startSaturation = 50, startLuminisity = 50 ) {
         /*  -------------------------------------------------
+        "startingHue" and other HSL values are those of the last color that was selected, other possible matches are compared to it
         -------------------------------------------------  */
-        console.log('########## startSaturation: ' + startSaturation);
-        var indexOfNextHue = parseInt( colorsByH[ hueArrayIndex ] , 10), // This gives you the next master index of the next hue indexed color
+        var indexOfNextHue = parseInt( colorsByH[ hueArrayIndex ] , 10), // This the color's index in colorsComplete
+            thisColor = [],
             hue = parseFloat( colorsComplete[ indexOfNextHue * 5 + 2 ], 10),
             saturation = parseFloat( colorsComplete[ indexOfNextHue * 5 + 3 ], 10),
             luminance = parseFloat( colorsComplete[ indexOfNextHue * 5 + 4 ], 10),
@@ -42,8 +51,13 @@ const colorsByH = [ 0,884, 0,1446, 0,911, ....
             satDiff = Math.abs( startSaturation - saturation ),
             lumDiff = Math.abs( startLuminisity - luminance );
         if ( satDiff + lumDiff < 35 ) {
-            console.log('addding');
-            allColors.push( `${hue},${saturation}%,${luminance}%` );
+            //console.log('addding');
+            thisColor.hueArrayIndex = hueArrayIndex;
+            thisColor.hue = hue;
+            thisColor.saturation = saturation;
+            thisColor.luminance = luminance;
+            // allColors.push( `${hue},${saturation}%,${luminance}%` );
+            allColors.push( thisColor );
         }
     }
 
@@ -93,13 +107,20 @@ const colorsByH = [ 0,884, 0,1446, 0,911, ....
         // }
         _.each ( allColors, function( color, index ){
             console.log(color);
-            chips = chips + '<div class="chip" style="background:hsl(' + color + ')"></div>';
+            // chips = chips + '<div class="chip" style="background:hsl(' + color + ')"></div>';
+            chips = chips + `<div class="chip" data-hue-index="${color.hueArrayIndex}" style="background:hsl( ${color.hue},${color.saturation}%,${color.luminance}% )"></div>`;
         });
 
         console.log( allColors);
 
         this.$parserWrapper.append(chips);
     }
+
+    // constructor( colorSet ) {
+    //     this._colorSet = colorSet;
+    //     this.$parserWrapper = $( '#parser-wrapper' );
+    //     this.wireChipHandlers();
+    // }
 }  // End ColorSet Class
 
 

@@ -1,9 +1,15 @@
+.color-list-wrapper {
+    height:70%;
+    overflow: hidden;
+    width: 100%;
+}
+
 .color-list {
     display: grid;
     grid-gap: 0.15vw;
     grid-template-columns: 1fr 1fr 1fr;
-    height:70%;
-    /* padding: 0.6vmax; */
+    height: 100%;
+    width: 100%;
 }
 
 .color-list__color {
