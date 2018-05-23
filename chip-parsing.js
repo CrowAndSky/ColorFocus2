@@ -1,10 +1,10 @@
 "use strict";
 
-let allColors = [],
-    colorDiff,
-    //firstColor = [ 2849, 331.15384615384613, 41.26984126984129, 50.588235294117645 ],
-    chips = '',
-    colorInHSL;
+// let this.allColors = [],
+//     colorDiff,
+//     //firstColor = [ 2849, 331.15384615384613, 41.26984126984129, 50.588235294117645 ],
+    
+//     colorInHSL;
 
 class ColorSet {
     // -------------------------------------------------
@@ -27,14 +27,18 @@ const colorsByH = [ 0,884, 0,1446, 0,911, ....
 ------------------------------------------------- */
 
     constructor( colorSet ) {
-        this._colorSet = colorSet;
+        this.chips = '';
+        this.allColors = [];
         this.$parserWrapper = $( '#parser-wrapper' );
         this.wireChipHandlers();
     }
 
     wireChipHandlers() {
+        let _this = this;
+
         this.$parserWrapper.on( 'click', '.chip',  function(){
-            console.log( $(this).data( 'hueIndex' ) );
+            let selectedChip = _this.allColors[ $(this).data( 'colorIndex' ) ];
+            _this.findMatches( selectedChip.hueArrayIndex, selectedChip.hue, selectedChip.saturation, selectedChip.luminance );
         });
     }
 
@@ -42,22 +46,22 @@ const colorsByH = [ 0,884, 0,1446, 0,911, ....
         /*  -------------------------------------------------
         "startingHue" and other HSL values are those of the last color that was selected, other possible matches are compared to it
         -------------------------------------------------  */
-        var indexOfNextHue = parseInt( colorsByH[ hueArrayIndex ] , 10), // This the color's index in colorsComplete
-            thisColor = [],
+
+        let indexOfNextHue = parseInt( colorsByH[ hueArrayIndex ] , 10), // This the color's index in colorsComplete
+            thisColor = {},
             hue = parseFloat( colorsComplete[ indexOfNextHue * 5 + 2 ], 10),
             saturation = parseFloat( colorsComplete[ indexOfNextHue * 5 + 3 ], 10),
             luminance = parseFloat( colorsComplete[ indexOfNextHue * 5 + 4 ], 10),
             hueDiff = Math.abs( startingHue - hue ),
             satDiff = Math.abs( startSaturation - saturation ),
             lumDiff = Math.abs( startLuminisity - luminance );
+
         if ( satDiff + lumDiff < 35 ) {
-            //console.log('addding');
             thisColor.hueArrayIndex = hueArrayIndex;
             thisColor.hue = hue;
             thisColor.saturation = saturation;
             thisColor.luminance = luminance;
-            // allColors.push( `${hue},${saturation}%,${luminance}%` );
-            allColors.push( thisColor );
+            this.allColors.push( thisColor );
         }
     }
 
@@ -68,6 +72,8 @@ const colorsByH = [ 0,884, 0,1446, 0,911, ....
         ------------------------------------------------- */
         let nextArrayIndex = hueArrayIndex;
 
+        this.allColors = [];
+
         for( var i = 2; i < 100; i += 2 ) { // Starting at 2 because the master index value FOLLOWS the hue value in that array, and we want to start with the NEXT color
             if ( nextArrayIndex + 2 >= colorsByH.length ) {
                 nextArrayIndex = 0; // Starting at 1 because the master index value FOLLOWS the hue value in that array
@@ -75,7 +81,6 @@ const colorsByH = [ 0,884, 0,1446, 0,911, ....
                 nextArrayIndex += 2;
             }
 
-            // this.testMatchFitness( nextArrayIndex, 0, 100, 50);
             this.testMatchFitness( nextArrayIndex, startingHue, startSaturation, startLuminisity);
         }
 
@@ -90,92 +95,27 @@ const colorsByH = [ 0,884, 0,1446, 0,911, ....
             
             this.testMatchFitness( nextArrayIndex, startingHue, startSaturation, startLuminisity);
         }
+
+        this.resetColorList();
     }
 
-    checkMasterIndex( hue ) {
+    resetColorList() {
         /*  -------------------------------------------------
         ------------------------------------------------- */
-        // for (  var x = 0; x < colorsAll2.length; x++ ) {
-        //     var indexOfNextHue = parseInt( x * 5 , 10);
-        //     var z = parseFloat( colorsAll2[ x * 5 + 2 ], 10);
-        //     if ( Math.abs( hue - z) < 5) {
-        //         //return z;
-        //         console.log('########## z: ' + z);
-        //         //allColors.push( colorsAll2[ indexOfNextHue + 2 ] + ',' + colorsAll2[ indexOfNextHue + 3 ] + ',' + colorsAll2[ indexOfNextHue + 4 ] );
-        //         allColors.push( `${colorsAll2[ indexOfNextHue + 2 ]},${colorsAll2[ indexOfNextHue + 3 ]},${colorsAll2[ indexOfNextHue + 4 ]}` );
-        //     }   
-        // }
-        _.each ( allColors, function( color, index ){
-            console.log(color);
-            // chips = chips + '<div class="chip" style="background:hsl(' + color + ')"></div>';
-            chips = chips + `<div class="chip" data-hue-index="${color.hueArrayIndex}" style="background:hsl( ${color.hue},${color.saturation}%,${color.luminance}% )"></div>`;
+        let _this = this;
+        this.chips = '';
+
+        _.each ( this.allColors, function( color, index ){
+            _this.chips = _this.chips + `<div class="chip" data-color-index="${ index }" style="background:hsl( ${color.hue},${color.saturation}%,${color.luminance}% )"></div>`;
         });
 
-        console.log( allColors);
-
-        this.$parserWrapper.append(chips);
+        this.$parserWrapper.html(this.chips);
     }
-
-    // constructor( colorSet ) {
-    //     this._colorSet = colorSet;
-    //     this.$parserWrapper = $( '#parser-wrapper' );
-    //     this.wireChipHandlers();
-    // }
 }  // End ColorSet Class
 
-
-
-// const $parserWrapper = $( '#parser-wrapper' );
-    // buildNextColor = function( i ) {
-    //     //console.log('########## i: ' + i);
-    //     var indexOfNextHue = parseInt( colorsByH[ 2849 + i ] , 10); // This gives you the next master index of the next hue indexed color
-    //     //console.log('########## indexOfNextHue: ' + indexOfNextHue);
-    //     var satDiff = Math.abs( 41.26984126984129 - parseFloat( colorsAll2[ indexOfNextHue * 5 + 3 ], 10) );     //slice(0, -1);
-    //     var lumDiff = Math.abs( 50.588235294117645 - parseFloat( colorsAll2[ indexOfNextHue * 5 + 4 ], 10) );     //slice(0, -1);
-    //     if ( satDiff + lumDiff < 35 ) {
-    //         allColors.push( colorsAll2[ ( indexOfNextHue * 5 ) + 2 ] + ',' + parseFloat( colorsAll2[ indexOfNextHue * 5 + 3 ], 10) + '%,' + parseFloat( colorsAll2[ indexOfNextHue * 5 + 4 ], 10) + '%"');
-    //     }
-    // },
-    // recommendColors = function() {    
-    //     /* colorsByHue is listed by hue first, master index second */
-
-    //     for( var i = 2; i < 100; i += 2 ) {
-    //         buildNextColor( i );
-    //     }
-
-    //     for( var i = -2; i > -100; i -= 2 ) {
-    //         //console.log('########## running');
-    //         buildNextColor( i );
-    //     }
-
-    //     _.each ( allColors, function( color, index ){
-    //         //console.log( allColors[ index ] );
-    //         chips = chips + '<div class="chip" style="background:hsl(' + allColors[ index * 3 ] + ')"></div>';
-    //     });
-
-    //     $parserWrapper.append(chips);
-    // };
-
-/*
-
-    */
-
-
-/*
-TO DO HERE:
-
-*/
-
 $(document).ready( function(){
-    //const $parserWrapper = $( '#parser-wrapper' );
-
-    //console.log('########## colorsAll2.length: ' + colorsAll2.length/5);
-    //recommendColors();
-    //let love = new ColorSet( [ [120, 100, 50], [0, 100, 50], [120, 100, 50], [120, 100, 50], [120, 100, 50] ] );
     let love = new ColorSet();
     love.findMatches( 2849, 331.15384615384613, 41.26984126984129, 50.588235294117645 );
-    //love.findMatches( 0 );
-    love.checkMasterIndex();
 });
 
 
@@ -198,8 +138,8 @@ the closest to pure red: "Lotus Flower","6310","0","45.054945054945044%","82.156
   --color-intro-hue-v7: hsl(29, 20%, 66%);
 
 
-// allColors.push( '"' + color.name + '"', '"' + color.colorNumber + '"', '"' + colorInHSL.h + ',' + colorInHSL.s * 100 + '%,' + colorInHSL.l * 100 + '%"');
-        // allColors.push( colorInHSL.h + ',' + colorInHSL.s * 100 + '%,' + colorInHSL.l * 100 + '%"');
+// this.allColors.push( '"' + color.name + '"', '"' + color.colorNumber + '"', '"' + colorInHSL.h + ',' + colorInHSL.s * 100 + '%,' + colorInHSL.l * 100 + '%"');
+        // this.allColors.push( colorInHSL.h + ',' + colorInHSL.s * 100 + '%,' + colorInHSL.l * 100 + '%"');
 
 console.log( colorsByH[ 2849 ] );
     console.log( colorsByH[ 1426 ] );
@@ -236,7 +176,7 @@ parse = function() {
             var r = Math.floor( color.rgb / 65536 );
             var g = Math.floor( ( color.rgb % 65536 ) / 256 );
             var b = color.rgb - r * 65536 - g * 256;
-            //chips = chips + '<div class="chip" style="background:rgb(' + r + ',' + g + ',' + b + ')"></div>';
+            //this.chips = this.chips + '<div class="chip" style="background:rgb(' + r + ',' + g + ',' + b + ')"></div>';
             let colorInHSL = tinycolor( "rgb " + r + " " + g + " " + b).toHsl();
             // console.log('########## colorInHSL: ');
             // console.log(colorInHSL);
@@ -248,9 +188,9 @@ parse = function() {
             // console.log('########## thisRGB: ' + thisRGB);
 
             //colorInHSL = rgbToHsl( r, g, b );
-            //allColors[ index ] = [ color.colorNumber, color.name, r + ',' + g + ',' + b, index ];
-            // allColors.push( '"' + color.name + '"', '"' + color.colorNumber + '"', colorInHSL.h + ',' + colorInHSL.s * 100 + '%,' + colorInHSL.l * 100 + '%');
-            allColors.push( '"' + color.name + '"', '"' + color.colorNumber + '"', '"' + colorInHSL.h + ',' + colorInHSL.s * 100 + '%,' + colorInHSL.l * 100 + '%"');
+            //this.allColors[ index ] = [ color.colorNumber, color.name, r + ',' + g + ',' + b, index ];
+            // this.allColors.push( '"' + color.name + '"', '"' + color.colorNumber + '"', colorInHSL.h + ',' + colorInHSL.s * 100 + '%,' + colorInHSL.l * 100 + '%');
+            this.allColors.push( '"' + color.name + '"', '"' + color.colorNumber + '"', '"' + colorInHSL.h + ',' + colorInHSL.s * 100 + '%,' + colorInHSL.l * 100 + '%"');
         }
     });
 
@@ -259,13 +199,13 @@ parse = function() {
     colorsByL.sort( sortByFirst );
 
     _.each ( colorsByH, function( color, index ){
-        //console.log( allColors[ color[ 1 ] * 3 + 2 ] );
-        //chips = chips + '<div class="chip" style="background:hsl(' + allColors[ color[ 1 ] * 3 + 2 ] + ')"></div>';
+        //console.log( this.allColors[ color[ 1 ] * 3 + 2 ] );
+        //this.chips = this.chips + '<div class="chip" style="background:hsl(' + this.allColors[ color[ 1 ] * 3 + 2 ] + ')"></div>';
     });
     
     
 
-    $parserWrapper.append(chips);
+    $parserWrapper.append(this.chips);
 
     console.log('########## H, S, L');
     // console.log(colorsByH);
@@ -274,7 +214,7 @@ parse = function() {
 };
 
 parse();
-$( '#console1' ).text( allColors );
+$( '#console1' ).text( this.allColors );
 $( '#console2' ).text( colorsByH );
 $( '#console3' ).text( colorsByS );
 $( '#console4' ).text( colorsByL );
@@ -321,7 +261,7 @@ thisIndex = canvasCurrentColumn + canvasCurrentRow;
 allColorsRGB[thisIndex] = allColorsShort[ rgbIndex ] + ',' + allColorsShort[ rgbIndex + 1 ] + ',' + allColorsShort[ rgbIndex + 2 ];
 //cwContex.fillRect( canvasCurrentX, canvasCurrentY, 20, 20);
 
-chips = chips + '<div class="chip" style="background:rgb(' + allColorsRGB[thisIndex] + ')"></div>';
+this.chips = this.chips + '<div class="chip" style="background:rgb(' + allColorsRGB[thisIndex] + ')"></div>';
 
 console.log("allColorsRGB[thisIndex]: " + allColorsRGB[thisIndex]);
 
