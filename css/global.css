@@ -68,13 +68,13 @@ ul, li {
   background-color: #fff;
   height: 100%;
   left: 0;
+  max-width: 1370px;
   overflow: hidden;
   top: 0;
   width: 100vw;
 }
 
 .color-set-wrapper,
-/* .color-list, */
 .color-list__button,
 .scene,
 .scene__room {

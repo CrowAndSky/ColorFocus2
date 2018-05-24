@@ -44,15 +44,3 @@
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     }
 }
-
-@media ( min-aspect-ratio: 3/1 ) {
-    .color-list {
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    }
-}
-
-@media ( min-aspect-ratio: 4/1 ) {
-    .color-list {
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    }
-}
