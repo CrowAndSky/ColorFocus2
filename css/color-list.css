@@ -17,6 +17,10 @@
     position: relative;
 }
 
+.color-list__button {
+    border-radius: 50%;
+}
+
 .color-list__color--active {
     
 }

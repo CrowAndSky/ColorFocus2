@@ -40,13 +40,11 @@
 			<!-- Colors, Neutrals or Whites -->
 			
 			<ul class="value-list">
-				<li class="value-list__color"><button class="value-list__button" style="background-color:hsl( 0, 0%, 13% );"></button></li>
-				<li class="value-list__color"><button class="value-list__button" style="background-color:hsl( 0, 0%, 26% );"></button></li>
-				<li class="value-list__color"><button class="value-list__button" style="background-color:hsl( 0, 0%, 39% );"></button></li>
-				<li class="value-list__color"><button class="value-list__button" style="background-color:hsl( 0, 0%, 52% );"></button></li>
-				<li class="value-list__color value-list__color--active"><button class="value-list__button value-list__button--active" style="background-color:hsl( 0, 0%, 65% );"></button></li>
-				<li class="value-list__color"><button class="value-list__button" style="background-color:hsl( 0, 0%, 78% );"></button></li>
-				<li class="value-list__color"><button class="value-list__button" style="background-color:hsl( 0, 0%, 90% );"></button></li>
+				<li class="value-list__color"><button class="value-list__button" style="background-color:hsl( 0, 0%, 18% );"></button></li>
+				<li class="value-list__color"><button class="value-list__button" style="background-color:hsl( 0, 0%, 34% );"></button></li>
+				<li class="value-list__color value-list__color--active"><button class="value-list__button value-list__button--active" style="background-color:hsl( 0, 0%, 50% );"></button></li>
+				<li class="value-list__color"><button class="value-list__button" style="background-color:hsl( 0, 0%, 66% );"></button></li>
+				<li class="value-list__color"><button class="value-list__button" style="background-color:hsl( 0, 0%, 82% );"></button></li>
 			</ul>
 			<h2 class="value-list__title">Choose the Brightness</h2>
 			<p class="value-list__copy">How dark or light should the color be?</p>
@@ -95,8 +93,45 @@
 	</div>
 
 	<div class="scene">
-		<img class="scene__room scene__room--tinted" src="./images/room.jpg" alt="">
-		<img class="scene__room scene__room--natural" src="./images/room.jpg" alt="">
+		<div class="scene__room-wrapper">
+			<button class="scene__color-info">
+				<div class="scene__color-info-number">SW 2021</div>
+				<div class="scene__color-info-name">House Atreides</div>
+			</button>
+			<button class="scene__color-info scene__color-info--coord1">
+				<div class="scene__color-info-number">SW 2006</div>
+				<div class="scene__color-info-name">Rainstorm</div>
+			</button>
+			<button class="scene__color-info scene__color-info--coord2">
+				<div class="scene__color-info-number">SW 3773</div>
+				<div class="scene__color-info-name">Deep Forest Brown</div>
+			</button>
+
+			<div class="scene__room__tinted-wrapper scene__room__tinted-wrapper">
+				<img class="scene__room scene__room--tinted" src="./images/room.jpg" alt="">
+			</div>
+		</div>
+
+		<div class="scene__room-wrapper scene__room-wrapper--bottom">
+			<button class="scene__color-info scene__color-info--bottom">
+				<div class="scene__color-info-number">SW 2021</div>
+				<div class="scene__color-info-name">House Atreides</div>
+			</button>
+			<button class="scene__color-info scene__color-info--coord1 scene__color-info--bottom">
+				<div class="scene__color-info-number">SW 2006</div>
+				<div class="scene__color-info-name">Rainstorm</div>
+			</button>
+			<button class="scene__color-info  scene__color-info--coord2 scene__color-info--bottom">
+				<div class="scene__color-info-number">SW 3773</div>
+				<div class="scene__color-info-name">Deep Forest Brown</div>
+			</button>
+
+			<div class="scene__room__tinted-wrapper scene__room__tinted-wrapper--bottom">
+				<img class="scene__room scene__room--tinted scene__room" src="./images/room.jpg" alt="">
+			</div>
+		</div>
+
+		<img class="scene__room scene__room--natural" src="./images/room.jpg" alt="">		
 	</div>
 </div>  <!-- CLOSE app-wrapper -->
 

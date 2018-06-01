@@ -1,6 +1,9 @@
 /* TO DO: 
-center filter items
-increase margin at large sizes */
+increase margin and decrease filters and color blocks at large sizes
+
+grid-column-end: span 2;
+
+*/
 
 .title {
     color: rgb(51, 111, 119);
@@ -53,15 +56,19 @@ increase margin at large sizes */
     display: flex;
     height: 12%;
     justify-content: space-between;
-    margin-top: 10px;
+    margin-top: 3%;
     width: 100%;
 }
 
-.family-list {
+.value-list {
+    padding: 0 3%;
 }
 
 .family-list__color,
 .value-list__color {
+    border-style: double;
+    border-color: white;
+    border-width: 6px;
     height: 100%;
     width: 12%;
 }
@@ -77,6 +84,10 @@ increase margin at large sizes */
     border-radius: 20px;
     height: 100%;
     width: 100%;
+}
+
+.family-list__color {
+    width: 10%;
 }
 
 
@@ -95,55 +106,11 @@ increase margin at large sizes */
 .value-list__button {
 }
 
-@media  ( min-width: 1000px ) and ( max-aspect-ratio: 3/2 ), ( min-width: 1000px ) and ( min-aspect-ratio: 2/3 )  {
-    .family-list,
-    .value-list {
-        margin-top: 10px;
-    }
-}
 
-@media  ( min-width: 1130px ) and ( max-aspect-ratio: 3/2 ), ( min-width: 1130px ) and ( min-aspect-ratio: 2/3 )  {
-    .value-list__title,
-    .family-list__title {
-        font-size: 19px;
-    }
-
-    .family-list,
-    .value-list {
-        margin-top: 12px;
-    }
-}
-
-@media  ( min-width: 1280px ) and ( max-aspect-ratio: 3/2 ), ( min-width: 1280px ) and ( min-aspect-ratio: 2/3 )  {
-    .family-list,
-    .value-list {
-        margin-top: 14px;
-    }
-
-    .family-list__button,
-    .value-list__button {
-        /* border-radius: 18px;
-        height: 36px; */
-    }
-
-    .family-list,
-    .value-list {
-        height: 36px;
-    }
-}
 
 @media  ( min-width: 770px ) and ( min-aspect-ratio: 3/2 ), ( min-width: 770px ) and ( max-aspect-ratio: 2/3 )  {
-    .filter-wrapper {
-        height: 37.5%;
-        margin-bottom: 0.5%;
-    }
-
     .color-set-wrapper {
         padding: 0.5%;
-    }
-
-    .color-list-wrapper {
-        height: 61.3%;
     }
 
     .value-list__title,
@@ -151,34 +118,24 @@ increase margin at large sizes */
         font-size: 16px;
     }
     
-    /* .value-list__copy,
-    .family-list__copy {
-        font-size: 14px;
-    } */
-
     .family-list,
     .value-list {
         height: 12%;
     }
 }
 
+@media  ( min-width: 770px ) and ( min-aspect-ratio: 3/2 )  {
+    .filter-wrapper {
+        height: 37.5%;
+        margin-bottom: 0.5%;
+    }
+
+    .color-list-wrapper {
+        height: 61.3%;
+    }
+}
+
 @media  ( min-width: 770px ) and ( min-aspect-ratio: 2/1 ), ( min-width: 770px ) and ( max-aspect-ratio: 1/2 )  {
-    /* .value-list__title,
-    .family-list__title {
-        font-size: 14px;
-    }
-    
-    .value-list__copy,
-    .family-list__copy {
-        font-size: 13px;
-    } */
-
-    .family-list__button,
-    .value-list__button {
-        /* border-radius: 0.75vmax;
-        height: 1.5vmax; */
-    }
-
     .family-list,
     .value-list {
         height: 14%;
@@ -186,6 +143,13 @@ increase margin at large sizes */
 }
 
 @media  ( min-width: 770px ) and ( min-aspect-ratio: 3/1 ), ( min-width: 770px ) and ( max-aspect-ratio: 1/3 )  {
+    .family-list,
+    .value-list {
+        height: 16%;
+    }
+}
+
+@media  ( min-width: 770px ) and ( min-aspect-ratio: 3/1 )  {
     .filter-wrapper {
         height: 47.5%;
         margin-bottom: 0.3%;
@@ -194,25 +158,65 @@ increase margin at large sizes */
     .color-list-wrapper {
         height: 51.5%;
     }
+}
 
-    /* .value-list__title,
-    .family-list__title {
-        font-size: 12px;
+@media  ( min-width: 1000px ) and ( max-aspect-ratio: 3/2 ), ( min-width: 1000px ) and ( min-aspect-ratio: 2/3 )  {
+    .family-list,
+    .value-list {
+        margin-top: 13px;
     }
-    
-    .value-list__copy,
-    .family-list__copy {
-        font-size: 12px;
-    } */
+
+    .value-list__title,
+    .family-list__title {
+        margin: 5px 0;
+    }
+}
+
+@media  ( min-width: 1170px ) and ( max-aspect-ratio: 3/2 ), ( min-width: 1170px ) and ( min-aspect-ratio: 2/3 )  {
+    .color-set-wrapper {
+        padding: 1%;
+    }
 
     .family-list,
     .value-list {
-        height: 16%;
+        margin-top: 16px;
     }
 
-    /* .family-list__button,
-    .value-list__button {
-        border-radius: 0.6vmax;
-        height: 1.2vmax;
-    } */
+    .value-list__title,
+    .family-list__title {
+        font-size: 18px;
+    }
+}
+
+@media  ( min-width: 1230px ) and ( max-aspect-ratio: 3/2 ), ( min-width: 1230px ) and ( min-aspect-ratio: 2/3 )  {
+    .color-set-wrapper {
+        padding: 1.3%;
+    }
+
+    .value-list__title,
+    .family-list__title {
+        font-size: 22px;
+        margin: 6px 0;
+    }
+
+    .family-list,
+    .value-list {
+        margin-top: 20px;
+    }
+}
+
+@media  ( min-width: 1380px ) and ( max-aspect-ratio: 3/2 ), ( min-width: 1380px ) and ( min-aspect-ratio: 2/3 )  {
+    .color-set-wrapper {
+        padding: 1.6%;
+    }
+
+    .family-list,
+    .value-list {
+        margin-top: 18px;
+    }
+
+    .family-list,
+    .value-list {
+        height: 36px;
+    }
 }

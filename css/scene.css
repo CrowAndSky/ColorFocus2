@@ -21,4 +21,31 @@
     -webkit-mask-size: cover;
     -webkit-mask-position: 50% 50%;
     mask-size: cover;
-  }
+}
+
+.scene__room-wrapper {
+}
+
+.scene__room-wrapper--bottom {
+}
+
+.scene__color-info {
+}
+
+.scene__color-info--bottom {
+}
+
+.scene__color-info--coord2 {
+}
+
+.scene__color-info-number {
+}
+
+.scene__color-info-name {
+}
+
+.scene__room__tinted-wrapper {
+}
+
+.scene__room__tinted-wrapper--bottom {
+}
