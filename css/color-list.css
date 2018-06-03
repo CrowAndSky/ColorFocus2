@@ -1,5 +1,9 @@
 .color-list-wrapper {
-    height:70%;
+    background-color: #fff;
+    border-radius: 0.75vmax;
+    height: 67%;
+    margin-top: 1%;
+    padding: 0 2% 2%;
     overflow: hidden;
     width: 100%;
 }
@@ -13,12 +17,11 @@
 }
 
 .color-list__color {
-    opacity: 0.3;
     position: relative;
 }
 
 .color-list__button {
-    border-radius: 50%;
+    border-radius: 0.6vmax;
 }
 
 .color-list__color--active {
@@ -27,24 +30,24 @@
 
 @media ( min-aspect-ratio: 2/3 ) {
     .color-list {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     }
 }
 
 @media ( min-aspect-ratio: 3/2 ) {
     .color-list {
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     }
 }
 
 @media ( min-aspect-ratio: 2/1 ) {
     .color-list {
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     }
 }
 
 @media ( min-aspect-ratio: 5/2 ) {
     .color-list {
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     }
 }

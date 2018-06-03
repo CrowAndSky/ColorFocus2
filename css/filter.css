@@ -1,8 +1,6 @@
 /* TO DO: 
 increase margin and decrease filters and color blocks at large sizes
 
-grid-column-end: span 2;
-
 */
 
 .title {
@@ -14,39 +12,50 @@ grid-column-end: span 2;
 
 .value-list__title,
 .family-list__title {
+    background-color: rgb(34, 32, 26);
+    border-radius: var( --default-border-radius );
+    color: rgb(236, 232, 228);
     font-size: 20px;
-    font-weight: 700;
+    margin: 0;
+    padding: var( --filter-list-title-padding );
 }
 
 .value-list__copy,
 .family-list__copy {
+    font-weight: 300;
 }
 
 .color-set-wrapper,
 .filter-wrapper {
-    /* align-content: stretch; */
     align-items: center;
     display: flex;
-    /* flex-direction: row; */
     flex-direction: column;
     justify-content: center;
-    /* flex-wrap: wrap; */
     height: 100%;
-    /* justify-content: space-around; */
     overflow: hidden;
 }   
 
 .color-set-wrapper {
+    background-color: #dfdfde;
     flex-direction: column;
     justify-content: center;
     overflow: hidden;
-    padding: 0.6%;
-    width: 30%;    
+    padding: var( --color-set-wrapper-padding );
+    width: 33%;    
 }
 
 .filter-wrapper {
-    height: 29%;
-    margin-bottom: 1%;
+    height: 30%;
+    /* margin-bottom: 1%; */
+    width: 100%;
+}
+
+.value-list__wrapper,
+.family-list__wrapper {
+    background-color: #fff;
+    border-radius: var( --default-border-radius );
+    margin-top: var( --filter-list-wrapper-margin-top );
+    padding: var( --filter-list-wrapper-padding );
     width: 100%;
 }
 
@@ -54,23 +63,17 @@ grid-column-end: span 2;
 .value-list {
     align-items: center;
     display: flex;
-    height: 12%;
-    justify-content: space-between;
-    margin-top: 3%;
+    height: var( --filter-list-height );
+    justify-content: center;
+    margin-top: var( --filter-list-margin-top );
     width: 100%;
-}
-
-.value-list {
-    padding: 0 3%;
 }
 
 .family-list__color,
 .value-list__color {
-    border-style: double;
-    border-color: white;
-    border-width: 6px;
     height: 100%;
-    width: 12%;
+    margin: 0 1%;
+    width: 8.5%;
 }
 
 .family-list__color--active,
@@ -81,13 +84,12 @@ grid-column-end: span 2;
 
 .family-list__button,
 .value-list__button {
-    border-radius: 20px;
+    border-radius: var( --filter-button-border-radius );
     height: 100%;
     width: 100%;
 }
 
 .family-list__color {
-    width: 10%;
 }
 
 
@@ -168,7 +170,7 @@ grid-column-end: span 2;
 
     .value-list__title,
     .family-list__title {
-        margin: 5px 0;
+        
     }
 }
 
@@ -179,7 +181,7 @@ grid-column-end: span 2;
 
     .family-list,
     .value-list {
-        margin-top: 16px;
+        /* margin-top: 16px; */
     }
 
     .value-list__title,
@@ -196,12 +198,12 @@ grid-column-end: span 2;
     .value-list__title,
     .family-list__title {
         font-size: 22px;
-        margin: 6px 0;
+        /* margin: 6px 0; */
     }
 
     .family-list,
     .value-list {
-        margin-top: 20px;
+        /* margin-top: 20px; */
     }
 }
 
@@ -212,11 +214,7 @@ grid-column-end: span 2;
 
     .family-list,
     .value-list {
-        margin-top: 18px;
-    }
-
-    .family-list,
-    .value-list {
         height: 36px;
+        /* margin-top: 18px; */
     }
 }

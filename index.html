@@ -23,32 +23,36 @@
 <div id="app-wrapper" class="">
 	<div class="color-set-wrapper">
 		<div class="filter-wrapper">
-			<ul class="family-list">
-				<li class="family-list__color"><button class="family-list__button" style="background-color:hsl( 0, 100%, 50% );"></button></li>
-				<li class="family-list__color"><button class="family-list__button" style="background-color:hsl( 39, 100%, 50% );"></button></li>
-				<li class="family-list__color"><button class="family-list__button" style="background-color:hsl( 60, 100%, 50% );"></button></li>
-				<li class="family-list__color family-list__color--active"><button class="family-list__button" style="background-color:hsl( 121, 50%, 40% );"></button></li>
-				<li class="family-list__color"><button class="family-list__button" style="background-color:hsl( 241, 98%, 46% );"></button></li>
-				<li class="family-list__color"><button class="family-list__button" style="background-color:hsl( 300, 100%, 25% );"></button></li>
-				<li class="family-list__color"><button class="family-list__button" style="background-color:hsl( 39, 25%, 50% );"></button></li>
-				<li class="family-list__color"><button class="family-list__button" style="background-color:hsl( 300, 25%, 90% );"></button></li>
-			</ul>
-			<h2 class="family-list__title">
-				Choose a Color Family
-			</h2>
-			<p class="family-list__copy">Prefer a color family, neutrals, or whites?</p>
-			<!-- Colors, Neutrals or Whites -->
-			
-			<ul class="value-list">
-				<li class="value-list__color"><button class="value-list__button" style="background-color:hsl( 0, 0%, 18% );"></button></li>
-				<li class="value-list__color"><button class="value-list__button" style="background-color:hsl( 0, 0%, 34% );"></button></li>
-				<li class="value-list__color value-list__color--active"><button class="value-list__button value-list__button--active" style="background-color:hsl( 0, 0%, 50% );"></button></li>
-				<li class="value-list__color"><button class="value-list__button" style="background-color:hsl( 0, 0%, 66% );"></button></li>
-				<li class="value-list__color"><button class="value-list__button" style="background-color:hsl( 0, 0%, 82% );"></button></li>
-			</ul>
-			<h2 class="value-list__title">Choose the Brightness</h2>
-			<p class="value-list__copy">How dark or light should the color be?</p>
-			<!-- Improve recommendations      Make the color dark or light -->
+			<div class="family-list__wrapper">
+				<h2 class="family-list__title">
+					Choose a Color Family
+				</h2>
+				<p class="family-list__copy">Prefer a color family, neutrals, or whites?</p>
+					<!-- Colors, Neutrals or Whites -->
+				<ul class="family-list">
+					<li class="family-list__color"><button class="family-list__button" style="background-color:hsl( 0, 100%, 50% );"></button></li>
+					<li class="family-list__color"><button class="family-list__button" style="background-color:hsl( 39, 100%, 50% );"></button></li>
+					<li class="family-list__color"><button class="family-list__button" style="background-color:hsl( 60, 100%, 50% );"></button></li>
+					<li class="family-list__color family-list__color--active"><button class="family-list__button" style="background-color:hsl( 121, 50%, 40% );"></button></li>
+					<li class="family-list__color"><button class="family-list__button" style="background-color:hsl( 241, 98%, 46% );"></button></li>
+					<li class="family-list__color"><button class="family-list__button" style="background-color:hsl( 300, 100%, 25% );"></button></li>
+					<li class="family-list__color"><button class="family-list__button" style="background-color:hsl( 39, 25%, 50% );"></button></li>
+					<li class="family-list__color"><button class="family-list__button" style="background-color:hsl( 300, 25%, 90% );"></button></li>
+				</ul>
+			</div>
+
+			<div class="value-list__wrapper">
+				<h2 class="value-list__title">Choose the Brightness</h2>
+				<p class="value-list__copy">How dark or light should the color be?</p>
+				<!-- Improve recommendations      Make the color dark or light -->
+				<ul class="value-list">
+					<li class="value-list__color"><button class="value-list__button" style="background-color:hsl( 0, 0%, 18% );"></button></li>
+					<li class="value-list__color"><button class="value-list__button" style="background-color:hsl( 0, 0%, 34% );"></button></li>
+					<li class="value-list__color value-list__color--active"><button class="value-list__button value-list__button--active" style="background-color:hsl( 0, 0%, 50% );"></button></li>
+					<li class="value-list__color"><button class="value-list__button" style="background-color:hsl( 0, 0%, 66% );"></button></li>
+					<li class="value-list__color"><button class="value-list__button" style="background-color:hsl( 0, 0%, 82% );"></button></li>
+				</ul>
+			</div>
 		</div>
 
 		<div class="color-list-wrapper">
@@ -69,25 +73,7 @@
 				<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 32.0001, 99.98998848%, 13.002387% );"></button></li>
 				<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 224.0029943, 5.000843842%, 21% );"></button></li>
 				<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 11.02301, 53.0004346724%, 53.002438% );"></button></li>
-				<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 324.0029943, 5.000843842%, 51% );"></button></li>
-				<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 124.0029943, 65.000843842%, 21% );"></button></li>
-				<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 244.0029943, 65.000843842%, 11% );"></button></li>
-				<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 224.0029943, 55.000843842%, 41% );"></button></li>
-				<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 154.0029943, 25.000843842%, 61% );"></button></li>
-				<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 84.0029943, 65.000843842%, 61% );"></button></li>
-				<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 200.0029943, 55.000843842%, 21% );"></button></li>
-				<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 324.0029943, 5.000843%, 17% );"></button></li>
-				<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 324.0029943, 5.000843842%, 71% );"></button></li>
-				<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 32.0001, 99.98998848%, 13.002387% );"></button></li>
-				<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 224.0029943, 5.000843842%, 21% );"></button></li>
-				<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 11.02301, 53.0004346724%, 53.002438% );"></button></li>
-				<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 324.0029943, 5.000843842%, 51% );"></button></li>
-				<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 124.0029943, 65.000843842%, 21% );"></button></li>
-				<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 244.0029943, 65.000843842%, 11% );"></button></li>
-				<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 224.0029943, 55.000843842%, 41% );"></button></li>
-				<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 154.0029943, 25.000843842%, 61% );"></button></li>
-				<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 84.0029943, 65.000843842%, 61% );"></button></li>
-				
+				<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 324.0029943, 5.000843842%, 51% );"></button></li>				
 			</ul>
 		</div>
 	</div>

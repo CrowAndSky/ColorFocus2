@@ -93,6 +93,17 @@ ul, li {
 body {
   --tintedSceneFilter: initial;
   --sceneTintColor: #fff;
+  
+  --default-border-radius: 0.75vmax;
+
+  --color-set-wrapper-padding: 0 0.6%;
+
+  --filter-list-title-padding: 0.3vw 0.35vw;
+  --filter-list-wrapper-padding: 0 0 2%;
+  --filter-list-wrapper-margin-top: 1%;
+  --filter-list-margin-top: 3%;
+  --filter-button-border-radius: 0.4vmax;
+  --filter-list-height: 12%;
 }
 
 /* ------------------ ############ APP STATE - ROOM DETAIL ############ ------------------ */
