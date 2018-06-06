@@ -91,10 +91,11 @@ ul, li {
 
 /* ------------------ ############ VARIABLES ############ ------------------ */
 body {
+  --media-query-multiplier: 1;
   --tintedSceneFilter: initial;
   --sceneTintColor: #fff;
   
-  --default-border-radius: 0.75vmax;
+  /* --default-border-radius: 0.75vmax;
 
   --color-set-wrapper-padding: 0 0.6%;
 
@@ -103,7 +104,19 @@ body {
   --filter-list-wrapper-margin-top: 1%;
   --filter-list-margin-top: 3%;
   --filter-button-border-radius: 0.4vmax;
-  --filter-list-height: 12%;
+  --filter-list-height: 12%; */
+  --default-border-radius: calc( var( --media-query-multiplier ) * 0.75vmax );
+
+  --color-set-wrapper-padding: 0 calc( var( --media-query-multiplier ) * 0.6% );
+
+  --filter-list-title-padding: calc( var( --media-query-multiplier ) * 0.3vw ) calc( var( --media-query-multiplier ) * 0.35vw );
+  --filter-list-wrapper-padding: 0 0 calc( var( --media-query-multiplier ) * 2% );
+  --filter-list-wrapper-margin-top: calc( var( --media-query-multiplier ) * 1% );
+  --filter-list-margin-top: calc( var( --media-query-multiplier ) * 0.8 * 2% );
+  --filter-button-border-radius: calc( var( --media-query-multiplier ) * 0.4vmax );
+  --filter-list-height: calc( var( --media-query-multiplier ) * 12% );
+  --filter-list-title-font-size: calc( var( --media-query-multiplier ) * 18px );
+  --filter-list-copy-font-size: calc( var( --media-query-multiplier ) * 16px );
 }
 
 /* ------------------ ############ APP STATE - ROOM DETAIL ############ ------------------ */
