@@ -1,9 +1,8 @@
 .color-list-wrapper {
     background-color: #fff;
-    border-radius: 0.75vmax;
+    border-radius: var( --default-border-radius );
     height: 61.3%;
-    margin-top: 1%;
-    /* padding: 0 2% 2%; */
+    margin: var( --color-list-margin );
     overflow: hidden;
     width: 100%;
 }
@@ -21,11 +20,11 @@
 }
 
 .color-list__button {
-    border-radius: 0.6vmax;
+    border-radius: var( --default-border-radius );
+    opacity: 0.1;
 }
 
 .color-list__color--active {
-    
 }
 
 @media ( min-aspect-ratio: 2/3 ) {

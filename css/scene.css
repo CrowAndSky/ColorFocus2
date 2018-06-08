@@ -3,11 +3,14 @@
     /* display: none; */
     left: 33%;
     width: 67%;
+
+    opacity: 0.1;
 }
 
 .scene__room {
     background-color: var( --sceneTintColor );
     object-fit: cover;
+    /* z-index: 1; */
 }
 
 .scene__room--tinted {
@@ -30,18 +33,48 @@
 }
 
 .scene__color-info {
+    align-items: center;
+    background-color: #555657;
+    clip-path: 0% 0%, 100% 0%, 100% 17%, 80% 12%, 0% 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transform: scaleY( 1 );
+    transition: transform 0.35s;
+    will-change: transform;
+    z-index: 3;
 }
 
 .scene__color-info--bottom {
 }
 
+/* .scene__color-info-copy, */
+.scene__color-info-copy-wrapper {
+    margin-bottom: 10%;
+    transform: scaleY( 1 );
+    transition: transform 0.35s;
+    will-change: transform;
+}
+
+.scene__color-info--coord1 {
+    background-color: #abaaaf;
+    clip-path: 0% 0%, 100% 0%, 100% 17%, 80% 12%, 0% 20%;
+    z-index: 2;
+}
+
 .scene__color-info--coord2 {
+    background-color: #222324;
+    clip-path: 0% 0%, 100% 0%, 100% 17%, 80% 12%, 0% 20%;
+    z-index: 1;
 }
 
-.scene__color-info-number {
+.scene__color-info--number {
+    font-size: var( --filter-list-copy-font-size );
 }
 
-.scene__color-info-name {
+.scene__color-info--name {
+    font-size: var( --filter-list-title-font-size );    
+    margin-bottom: 10%;
 }
 
 .scene__room__tinted-wrapper {
