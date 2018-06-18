@@ -27,26 +27,20 @@
 .color-list__color--active {
 }
 
-@media ( min-aspect-ratio: 2/3 ) {
+@media ( min-aspect-ratio: 3/2 ) {
     .color-list {
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     }
 }
 
-@media ( min-aspect-ratio: 3/2 ) {
+@media ( min-aspect-ratio: 5/2 ) {
     .color-list {
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     }
 }
 
-@media ( min-aspect-ratio: 2/1 ) {
+@media ( min-aspect-ratio: 7/2 ) {
     .color-list {
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    }
-}
-
-@media ( min-aspect-ratio: 5/2 ) {
-    .color-list {
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     }
 }

@@ -2,6 +2,7 @@
     background-color: var( --sceneTintColor );
     /* display: none; */
     left: 33%;
+    overflow: hidden;
     width: 67%;
 
     /* opacity: 0.1; */
@@ -36,16 +37,40 @@
     display: none;
 }
 
-.scene__color-info {
+.scene__color-info-wrapper {
     align-items: center;
-    background-color: #555657;
-    clip-path: polygon( 0% 0%, 100% 0%, 100% 17%, 80% 12%, 0% 20% );
+    /* align-content: center; */
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    transform: scaleY( 1 );
+    flex-direction: row;
+    height: 100%;
+    justify-content: space-around;
+
+    transform: scale( 1 );
     transition: transform 0.35s;
+
+    width: 100%;
     will-change: transform;
+    /* padding: 1%; */
+}
+
+.scene__color-info {
+    /* align-items: center; */
+    /* background-color: #555657; */
+    background: linear-gradient(-15deg, rgba(27, 41, 54, 0.2) 0%, rgba(27, 41, 54, 1) 38%, rgba(27, 41, 54, 1) 100%);
+    border-radius: var( --default-border-radius );
+    /* display: inline-block; */
+    height: 98%;
+    /* margin: 1% 0 0 1%; */
+    /* clip-path: polygon( 0% 0%, 100% 0%, 100% 17%, 80% 12%, 0% 20% ); */
+    /* display: flex;
+    flex-direction: column;
+    justify-content: flex-end; */
+    position: relative;
+    /* transform: scale( 1 ); */
+    transform-origin: top left;
+    transition: transform 0.35s;
+    width: 52%;
+    /* will-change: transform; */
     z-index: 3;
 }
 
@@ -55,20 +80,23 @@
 /* .scene__color-info-copy, */
 .scene__color-info-copy-wrapper {
     margin-bottom: 10%;
-    transform: scaleY( 1 );
+    /* transform: scale( 10 ); */
+    transform-origin: top left;
     transition: transform 0.35s;
     will-change: transform;
 }
 
 .scene__color-info--coord1 {
-    background-color: #abaaaf;
-    clip-path: polygon( 0% 0%, 100% 0%, 100% 17%, 80% 12%, 0% 20% );
+    background: linear-gradient(-15deg, rgba(27, 41, 54, 0.2) 0%, rgba(27, 41, 54, 1) 38%, rgba(27, 41, 54, 1) 100%);
+    width: 22%;
+    /* clip-path: polygon( 0% 0%, 100% 0%, 100% 17%, 80% 12%, 0% 20% ); */
     z-index: 2;
 }
 
 .scene__color-info--coord2 {
     background-color: #222324;
-    clip-path: polygon( 0% 0%, 100% 0%, 100% 17%, 80% 12%, 0% 20% );
+    width: 22%;
+    /* clip-path: polygon( 0% 0%, 100% 0%, 100% 17%, 80% 12%, 0% 20% ); */
     z-index: 1;
 }
 
