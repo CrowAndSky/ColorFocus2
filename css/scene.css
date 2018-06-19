@@ -45,12 +45,15 @@
     height: 100%;
     justify-content: space-around;
 
+    position: relative;
+
     transform: scale( 1 );
     transition: transform 0.35s;
 
     width: 100%;
     will-change: transform;
     /* padding: 1%; */
+    z-index: 3;
 }
 
 .scene__color-info {
@@ -71,7 +74,7 @@
     transition: transform 0.35s;
     width: 52%;
     /* will-change: transform; */
-    z-index: 3;
+    /* z-index: 3; */
 }
 
 .scene__color-info--bottom {
@@ -80,25 +83,38 @@
 /* .scene__color-info-copy, */
 .scene__color-info-copy-wrapper {
     margin-bottom: 10%;
-    /* transform: scale( 10 ); */
+    /* position: relative;
+    transform: scale( 10 );
     transform-origin: top left;
     transition: transform 0.35s;
-    will-change: transform;
+    will-change: transform; */
 }
 
 .scene__color-info--coord1 {
     background: linear-gradient(-15deg, rgba(27, 41, 54, 0.2) 0%, rgba(27, 41, 54, 1) 38%, rgba(27, 41, 54, 1) 100%);
     width: 22%;
     /* clip-path: polygon( 0% 0%, 100% 0%, 100% 17%, 80% 12%, 0% 20% ); */
-    z-index: 2;
+    /* z-index: 2; */
 }
 
 .scene__color-info--coord2 {
     background-color: #222324;
     width: 22%;
     /* clip-path: polygon( 0% 0%, 100% 0%, 100% 17%, 80% 12%, 0% 20% ); */
-    z-index: 1;
+    /* z-index: 1; */
 }
+
+.scene__color-info-copy {
+    color: aliceblue;
+    position: relative;
+    transform: scale( 10 );
+    transform-origin: top left;
+    transition: transform 0.35s;
+    will-change: transform;
+}
+
+
+color: #fff;
 
 .scene__color-info--number {
     font-size: var( --filter-list-copy-font-size );
