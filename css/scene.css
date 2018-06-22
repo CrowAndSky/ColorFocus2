@@ -38,27 +38,6 @@
     display: none;
 }
 
-.scene__color-info-wrapper {
-    /* align-items: center; */
-    /* align-content: center; */
-    /* display: flex;
-    flex-direction: row; */
-    height: 96%;
-    /* justify-content: space-around; */
-    margin: 2% 0 0 2%;
-    overflow: hidden;
-
-
-    position: relative;
-
-    /* transform: scale( 1 );
-    transition: transform 0.35s; */
-
-    width: 96%;
-    /* will-change: transform; */
-    /* padding: 1%; */
-    z-index: 3;
-}
 body {
     /* --color-info-coord1-left-raw: 46; */
     --color-info-main-width-raw: 4.6;
@@ -84,26 +63,52 @@ body {
     --color-info-coord1-top: calc( var( --color-info-coord1-top-raw ) * 1% );
     --color-info-coord2-top: calc( var( --color-info-coord2-top-raw ) * 1% );
 
-    /* --color-info-main-transform: transform: scale( 1 ) translate( 0, 0 ); */
+    --color-info-main-transform-scaleY: 10;
+    --color-info-main-transform-scaleX: 10;
+    --color-info-main-transform-translateY: 0%;
+    --color-info-main-transform-translateX: 0%;
+
+    --color-info-coord1-transform-scaleY: 10;
+    --color-info-coord1-transform-scaleX: 10;
+    --color-info-coord1-transform-translateY: 0%;
+    --color-info-coord1-transform-translateX: calc( 34vw - 1% );
+    /* --color-info-coord1-transform-translateX: calc( var( --color-info-coord-left-raw ) * 19% ); */
+
+    --color-info-coord2-transform-scaleY: 10;
+    --color-info-coord2-transform-scaleX: 10;
+    --color-info-coord2-transform-translateY: 0%;
+    --color-info-coord2-transform-translateX: 0%;
+/* 
+    --color-info-main-transform: transform: scale( 1, 1 ) translate( 0, 0 );
+    --color-info-coord1-transform: transform: scale( 10 ) translate( 200%, 0 );
+    --color-info-coord2-transform: transform: scale( 10 ) translate( 200%, 0 ); */
 }
 
-.scene__color-info { /* staionary with corners */
-    /* align-items: center; */
-    /* background-color: #555657; */
-    /* background: linear-gradient(-15deg, rgba(27, 41, 54, 0.2) 0%, rgba(27, 41, 54, 1) 38%, rgba(27, 41, 54, 1) 100%); */
+.detail .scene__color-info {
+    transform: scale( var( --color-info-main-transform-scaleX ), var( --color-info-main-transform-scaleY )  ) translate( var( --color-info-main-transform-translateX ), var( --color-info-main-transform-translateY ) );
+}
+
+.detail .scene__color-info--coord1 {
+    transform: translate( var( --color-info-coord1-transform-translateX ), var( --color-info-coord1-transform-translateY ) ) scale( var( --color-info-coord1-transform-scaleX ), var( --color-info-coord1-transform-scaleY )  );
+}
+
+.detail .scene__color-info--coord2 {
+    transform: scale( var( --color-info-coord2-transform-scaleX ), var( --color-info-coord2-transform-scaleY )  ) translate( var( --color-info-coord2-transform-translateX ), var( --color-info-coord2-transform-translateY ) );
+}
+
+.detail {
+    color: red !important;
+}
+
+.scene__color-info {
     border-radius: 0.2vmax;
     display: block;
     height: var( --color-info-main-height );
     left: var( --color-info-main-left );
-    /* margin: 1% 0 0 1%; */
-    /* clip-path: polygon( 0% 0%, 100% 0%, 100% 17%, 80% 12%, 0% 20% ); */
-    /* display: flex;
-    flex-direction: column;
-    justify-content: flex-end; */
     overflow: hidden;
     position: absolute;
     top: var( --color-info-main-top );
-    transform: scale( 10 ) translate( 0, 0 );
+    transform: scale( 1, 1 ) translate( 0, 0 );
     transform-origin: top left;
     transition: transform 0.35s;
     width: var( --color-info-main-width );
@@ -118,18 +123,21 @@ body {
 .scene__color-info--coord2 {
     height: var( --color-info-coord-height );
     left: var( --color-info-coord-left );
-    top: var( --color-info-coord1-top );
     width: var( --color-info-coord-width );
+}
+
+.scene__color-info--coord1 {
+    top: var( --color-info-coord1-top );
+    transform: scale( 1, 1 ) translate( 0, 0 );
 }
 
 .scene__color-info--coord2 {
     top: var( --color-info-coord2-top );
+    transform: scale( 1, 1 ) translate( 0, 0 );
 }
 
-/* .scene__color-info-copy, */
-.scene__color-info-copy-wrapper { /* moves down into view */
+.scene__color-info-copy-wrapper {
     background: linear-gradient(-15deg, rgba(27, 41, 54, 0.2) 0%, rgba(27, 41, 54, 1) 38%, rgba(27, 41, 54, 1) 100%);
-    /* margin-bottom: 10%; */
     height: 100%;
     overflow: hidden;
     position: relative;

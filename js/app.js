@@ -23,6 +23,7 @@ var initDOM = function( event ) {
     $( '.color-list__button' ).click( function(){
         console.log('########## clicked');
         tintScene();
+        $( 'body' ).toggleClass( 'detail' );
     })
 };
 
