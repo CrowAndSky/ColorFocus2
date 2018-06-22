@@ -11,6 +11,8 @@
 .scene__room {
     background-color: var( --sceneTintColor );
     object-fit: cover;
+
+    opacity: 0.01;
 }
 
 .scene__room--tinted {
@@ -40,7 +42,7 @@
 
 body {
     /* --color-info-coord1-left-raw: 46; */
-    --color-info-main-width-raw: 4.6;
+    --color-info-main-width-raw: 4.85;
     --color-info-main-height-raw: 5.9;
     --color-info-main-top-raw: 1;
     --color-info-main-left-raw: 1;
@@ -71,7 +73,8 @@ body {
     --color-info-coord1-transform-scaleY: 10;
     --color-info-coord1-transform-scaleX: 10;
     --color-info-coord1-transform-translateY: 0%;
-    --color-info-coord1-transform-translateX: calc( 34vw - 1% );
+    /* --color-info-coord1-transform-translateX: calc( 200% + ( ( 0.1 / var( --color-info-coord-width-raw ) ) * 1% ) ); */
+    --color-info-coord1-transform-translateX: calc( 202% );
     /* --color-info-coord1-transform-translateX: calc( var( --color-info-coord-left-raw ) * 19% ); */
 
     --color-info-coord2-transform-scaleY: 10;
@@ -85,33 +88,50 @@ body {
 }
 
 .detail .scene__color-info {
-    transform: scale( var( --color-info-main-transform-scaleX ), var( --color-info-main-transform-scaleY )  ) translate( var( --color-info-main-transform-translateX ), var( --color-info-main-transform-translateY ) );
+    /* transform: scale( var( --color-info-main-transform-scaleX ), var( --color-info-main-transform-scaleY ) ) translate( var( --color-info-main-transform-translateX ), var( --color-info-main-transform-translateY ) ); */
+    /* transform: scale( var( --color-info-main-transform-scaleX ), var( --color-info-main-transform-scaleY ) ) translate( var( --color-info-main-transform-translateX ), var( --color-info-main-transform-translateY ) );
+    transform: scale( 11, 12 ) translate( 0, 16% ); */
 }
 
 .detail .scene__color-info--coord1 {
-    transform: translate( var( --color-info-coord1-transform-translateX ), var( --color-info-coord1-transform-translateY ) ) scale( var( --color-info-coord1-transform-scaleX ), var( --color-info-coord1-transform-scaleY )  );
+    /* transform: scale( var( --color-info-coord1-transform-scaleX ), var( --color-info-coord1-transform-scaleY ) ) translate( var( --color-info-coord1-transform-translateX ), var( --color-info-coord1-transform-translateY ) ) ; */
+    /* transform: scale( var( --color-info-coord1-transform-scaleX ), var( --color-info-coord1-transform-scaleY ) ) translate( var( --color-info-coord1-transform-translateX ), var( --color-info-coord1-transform-translateY ) ) ;
+    transform: scale( 18.22, 15.5 ) translate( 111%, 11% ); */
 }
 
 .detail .scene__color-info--coord2 {
-    transform: scale( var( --color-info-coord2-transform-scaleX ), var( --color-info-coord2-transform-scaleY )  ) translate( var( --color-info-coord2-transform-translateX ), var( --color-info-coord2-transform-translateY ) );
+    /* transform: scale( var( --color-info-coord2-transform-scaleX ), var( --color-info-coord2-transform-scaleY ) ) translate( var( --color-info-coord2-transform-translateX ), var( --color-info-coord2-transform-translateY ) ); */
+    /* transform: scale( var( --color-info-coord2-transform-scaleX ), var( --color-info-coord2-transform-scaleY ) ) translate( var( --color-info-coord2-transform-translateX ), var( --color-info-coord2-transform-translateY ) );
+    transform: scale( 18.22, 15.5 ) translate( 111%, 106% ); */
 }
 
-.detail {
-    color: red !important;
+.detail .scene__color-info-wrapper {
+    transform: translate( 0, 0 ) scale( 1 );
+}
+
+.scene__color-info-wrapper {
+    left: 1%;
+    top: 1%;
+    transform:  translate( -45%, -45% ) scale( 0.1 );
 }
 
 .scene__color-info {
-    border-radius: 0.2vmax;
+    border-radius: 30px;
     display: block;
-    height: var( --color-info-main-height );
-    left: var( --color-info-main-left );
+    height: 5.9%;
+    height: 52%;
+    /* height: var( --color-info-main-height );
+    left: var( --color-info-main-left ); */
+    left: 2%;
     overflow: hidden;
     position: absolute;
-    top: var( --color-info-main-top );
-    transform: scale( 1, 1 ) translate( 0, 0 );
+    /* top: var( --color-info-main-top ); */
+    top: 23%;
+    /* transform: scale( 1, 1 ) translate( 0, 0 );
     transform-origin: top left;
-    transition: transform 0.35s;
-    width: var( --color-info-main-width );
+    transition: transform 0.35s; */
+    /* width: var( --color-info-main-width ); */
+    width: 52%;
     will-change: transform;
     z-index: 3;
 }
@@ -121,19 +141,25 @@ body {
 
 .scene__color-info--coord1,
 .scene__color-info--coord2 {
-    height: var( --color-info-coord-height );
-    left: var( --color-info-coord-left );
-    width: var( --color-info-coord-width );
+    /* height: var( --color-info-coord-height ); */
+    height: 38%;
+    /* left: var( --color-info-coord-left ); */
+    left: 56%;
+    top: 11%;
+    /* width: var( --color-info-coord-width ); */
+    width: 40.5%;
 }
 
 .scene__color-info--coord1 {
-    top: var( --color-info-coord1-top );
-    transform: scale( 1, 1 ) translate( 0, 0 );
+    /* top: var( --color-info-coord1-top ); */
+    /* top: 2.675%; */
+    /* transform: scale( 1, 1 ) translate( 0, 0 ); */
 }
 
 .scene__color-info--coord2 {
-    top: var( --color-info-coord2-top );
-    transform: scale( 1, 1 ) translate( 0, 0 );
+    top: 51%;
+    /* top: var( --color-info-coord2-top ); */
+    /* transform: scale( 1, 1 ) translate( 0, 0 ); */
 }
 
 .scene__color-info-copy-wrapper {
@@ -141,11 +167,15 @@ body {
     height: 100%;
     overflow: hidden;
     position: relative;
-    transform: scale( 10 );
+    transform: scaleY( 10 );
     transform-origin: top left;
     transition: transform 0.35s;
     width: 100%;
     will-change: transform;
+}
+
+.detail .scene__color-info-copy-wrapper {
+    transform: scaleY( 1 );
 }
 
 .scene__color-info--coord1 .scene__color-info-copy-wrapper {

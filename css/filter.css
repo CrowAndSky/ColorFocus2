@@ -30,7 +30,7 @@
     height: 100%;
     overflow: hidden;
 
-    opacity: 0.5;
+    opacity: 0.05;
 }   
 
 .color-set-wrapper {
@@ -39,7 +39,9 @@
     justify-content: center;
     overflow: hidden;
     padding: var( --color-set-wrapper-padding );
-    width: 33%;    
+    width: 33%;
+    
+    opacity: 0.05;
 }
 
 .filter-wrapper {

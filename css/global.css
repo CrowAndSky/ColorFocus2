@@ -81,6 +81,7 @@ ul, li {
 .scene__room,
 .scene__room-wrapper,
 .scene__room__tinted-wrapper,
+.scene__color-info-wrapper,
 .scene__color-info-copy-wrapper,
 .scene__color-info {
     height: 100%;
