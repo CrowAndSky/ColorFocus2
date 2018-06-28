@@ -13,13 +13,12 @@
     font-size: var( --filter-list-title-font-size );
     margin: 0;
     padding: var( --filter-list-title-padding );
-
-    opacity: 0.2;
 }
 
 .short-list__copy {
     font-weight: 300;
     font-size: var( --filter-list-copy-font-size );
+    margin: var( --filter-list-copy-margin );
 }
 
 .filter-wrapper {
@@ -29,8 +28,6 @@
     justify-content: center;
     height: 100%;
     overflow: hidden;
-
-    opacity: 0.05;
 }   
 
 .color-set-wrapper {
@@ -41,7 +38,7 @@
     padding: var( --color-set-wrapper-padding );
     width: 33%;
     
-    opacity: 0.05;
+    /* opacity: 0.05; */
 }
 
 .filter-wrapper {

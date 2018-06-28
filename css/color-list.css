@@ -3,6 +3,7 @@
     border-radius: var( --default-border-radius );
     height: 61.3%;
     margin: var( --color-list-margin );
+    padding: var( --color-list-padding );
     overflow: hidden;
     width: 100%;
 }
@@ -10,7 +11,7 @@
 .color-list {
     display: grid;
     grid-gap: 0.15vw;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     height: 100%;
     width: 100%;
 }
@@ -24,7 +25,10 @@
     opacity: 0.1;
 }
 
-.color-list__color--active {
+@media ( min-aspect-ratio: 1/2 ) {
+    .color-list {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }
 
 @media ( min-aspect-ratio: 3/2 ) {

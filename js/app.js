@@ -19,11 +19,16 @@ var tintScene = function( hue, saturation, luminosity ) {
 }
 /* ------------------ ### initDOM ### ------------------ */
 var initDOM = function( event ) {
-    console.log('########## 1');
     $( '.color-list__button' ).click( function(){
-        console.log('########## clicked');
         tintScene();
-        $( 'body' ).toggleClass( 'detail' );
+
+        if ( $( 'body.state-detail' ).length > 0 ) {
+            $( 'body' ).removeClass( 'state-detail' );
+            window.setTimeout( function(){ $( 'body' ).removeClass( 'state-detail-animating' ); }, 1000 );
+        } else {
+            $( 'body' ).addClass( 'state-detail' );
+            window.setTimeout( function(){ $( 'body' ).addClass( 'state-detail-animating' ); }, 1000 );
+        }
     })
 };
 
@@ -35,8 +40,6 @@ var initDOM = function( event ) {
 
 $(document).ready( function(){
     initDOM();
-
-    window.setTimeout( function(){ $( 'body' ).addClass( 'primed' ); }, 100 );
 });
 
 /*\
@@ -44,13 +47,21 @@ $(document).ready( function(){
 |*|       TO DO:
 |*|  :: wwwwwwwwww ::
 ------------------ ### Soonish ### ------------------
-
+Scaffolding for states
+Dispaly filter boxes by state
+Increase font size at default
 
 ------------------ ### Medium ### ------------------
+Classes for filter box border radius
+    along with transistions for hiding/showing - or is changing height good enough?
 
 
 
 ------------------ ### Long term ### ------------------
+Mask off back room
+Mask off furntiure
+Logic to tint back room (invert of value?)
+Logic to tint furniture (invert of main hue?)
 
 \*/
 

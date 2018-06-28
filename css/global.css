@@ -102,6 +102,7 @@ body {
   --default-border-radius: calc( var( --media-query-multiplier ) * 0.75vmax );
 
   --color-list-margin: calc( var( --media-query-multiplier ) * 1% ) 0;
+  --color-list-padding: calc( var( --media-query-multiplier ) * 2% ) calc( var( --media-query-multiplier ) * 2% );
 
   --color-set-wrapper-padding: 0 calc( var( --media-query-multiplier ) * 0.6% );
   --color-set-transform: transform: scaleY( 1 );
@@ -114,6 +115,7 @@ body {
   --filter-list-height: calc( var( --media-query-multiplier ) * 5% );
   --filter-list-title-font-size: calc( var( --media-query-multiplier ) * var( --media-query-font-multiplier ) * 18px );
   --filter-list-copy-font-size: calc( var( --media-query-multiplier ) * var( --media-query-font-multiplier ) * 16px );
+  --filter-list-copy-margin: calc( var( --media-query-multiplier ) * 0.3vw ) calc( var( --media-query-multiplier ) * 0.35vw );
 }
 
 @media  ( min-width: 770px ) and ( min-aspect-ratio: 3/2 ), ( min-width: 770px ) and ( max-aspect-ratio: 2/3 )  {

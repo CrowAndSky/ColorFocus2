@@ -1,6 +1,5 @@
 .scene {
     background-color: var( --sceneTintColor );
-    /* display: none; */
     left: 33%;
     overflow: hidden;
     width: 67%;
@@ -12,7 +11,17 @@
     background-color: var( --sceneTintColor );
     object-fit: cover;
 
-    opacity: 0.01;
+    /* opacity: 0.01; */
+}
+
+.scene__room--natural {
+    opacity: 1;
+    transition: opacity 0.9s;
+    will-change: opacity;
+}
+
+.state-detail .scene__room--natural {
+    opacity: 0;
 }
 
 .scene__room--tinted {
@@ -40,7 +49,7 @@
     display: none;
 }
 
-.detail .scene__color-info-wrapper {
+.state-detail .scene__color-info-wrapper {
     transform: scale( 1 );
 }
 
@@ -54,7 +63,7 @@
 }
 
 .scene__color-info {
-    border-radius: 30px;
+    border-radius: 1.5vmax;
     display: block;
     height: 5.9%;
     height: 52%;
@@ -67,6 +76,10 @@
 }
 
 .scene__color-info--bottom {
+}
+
+.scene__color-info--main .scene__color-info-copy-wrapper {
+    padding-top: 3vmax;
 }
 
 .scene__color-info--coord1,
@@ -85,51 +98,72 @@
 }
 
 .scene__color-info-copy-wrapper {
-    background: linear-gradient(-15deg, rgba(27, 41, 54, 0.3) 0%, rgba(27, 41, 54, 1) 42%, rgba(27, 41, 54, 1) 100%);
+    background: linear-gradient(-15deg, rgba( 199, 95, 72, 0.4 ) 0%, rgba( 199, 95, 72, 1 ) 48%, rgba( 199, 95, 72, 1) 100%);
     height: 100%;
     overflow: hidden;
     position: relative;
-    transform: scaleY( 10 );
+    transform: scaleY( 5 );
     transform-origin: top left;
-    transition: transform 0.65s;
+    transition: transform 0.3s;
     width: 100%;
     will-change: transform;
 }
 
-.detail .scene__color-info-copy-wrapper {
+.state-detail .scene__color-info-copy-wrapper {
     transform: scaleY( 1 );
 }
 
 .scene__color-info--coord1 .scene__color-info-copy-wrapper {
-    background: linear-gradient(-15deg, rgba(227, 41, 54, 0.3) 0%, rgba(227, 141, 54, 1) 42%, rgba(227, 141, 54, 1) 100%);
+    background: linear-gradient(-15deg, rgba( 240, 235, 224, 0.3) 0%, rgba( 240, 235, 224, 1) 42%, rgba( 240, 235, 224, 1) 100%);
 }
 
 .scene__color-info--coord2 .scene__color-info-copy-wrapper {
-    background: linear-gradient(-15deg, rgba(197, 241, 154, 0.3) 0%, rgba(197, 241, 154, 1) 42%, rgba(197, 241, 154, 1) 100%);
+    background: linear-gradient(-15deg, rgba( 68, 55, 53, 0.3) 0%, rgba( 68, 55, 53, 1) 42%, rgba( 68, 55, 53, 1) 100%);
 }
 
 .scene__color-info-copy {
     color: aliceblue;
     display: block;
+    font-size: 2vmax;
+    font-weight: 200;
+    line-height: 1em;
+    margin: 3vmax 0 0 1vmax;
+    text-align: left;
+    opacity: 0;
     position: relative;
-    transform: translateY( -300% ) scaleY( 0.1 );
+    transform: translateY( -300% );
     transform-origin: top left;
-    transition: transform 0.65s;
-    will-change: transform;
+    transition: opacity 0.9s, transform 0.7s;
+    transition-delay: 0.3s, 0.3s;
+    will-change: opacity transform;
 }
 
-.detail .scene__color-info-copy {
-    transform: translateY( 0 ) scaleY( 1 );
+.state-detail .scene__color-info-copy {
+    opacity: 1;
+    transform: translateY( 0 );
 }
 
+.state-detail-animating .scene__color-info-copy {
+    transition: opacity 0.3s, transform 0.3s;
+    transition-delay: 0s, 0s;
+}
 
 .scene__color-info--number {
-    font-size: var( --filter-list-copy-font-size );
 }
 
 .scene__color-info--name {
-    font-size: var( --filter-list-title-font-size );    
-    margin-bottom: 10%;
+    font-size: 5vmax;
+    margin-top: 0.5vmax;
+}
+
+.scene__color-info--coord1 .scene__color-info-copy,
+.scene__color-info--coord2 .scene__color-info-copy {
+    font-size: 2vmax;
+}
+
+.scene__color-info--coord1 .scene__color-info--name,
+.scene__color-info--coord2 .scene__color-info--name {
+    font-size: 3.7vmax;
 }
 
 .scene__room__tinted-wrapper {
