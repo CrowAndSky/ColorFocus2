@@ -95,27 +95,25 @@ ul, li {
 
 /* ------------------ ############ VARIABLES ############ ------------------ */
 body {
-  --media-query-multiplier: 1;
-  --media-query-font-multiplier: 1.2;
-  --tintedSceneFilter: initial;
-  --sceneTintColor: #fff;
-  --default-border-radius: calc( var( --media-query-multiplier ) * 0.75vmax );
-
-  --color-list-margin: calc( var( --media-query-multiplier ) * 1% ) 0;
-  --color-list-padding: calc( var( --media-query-multiplier ) * 2% ) calc( var( --media-query-multiplier ) * 2% );
-
-  --color-set-wrapper-padding: 0 calc( var( --media-query-multiplier ) * 0.6% );
-  --color-set-transform: transform: scaleY( 1 );
-
-  --filter-list-title-padding: calc( var( --media-query-multiplier ) * 0.3vw ) calc( var( --media-query-multiplier ) * 0.35vw );
-  --filter-list-wrapper-padding: 0 0 calc( var( --media-query-multiplier ) * 2% );
-  --filter-list-wrapper-margin-top: calc( var( --media-query-multiplier ) * 1% );
-  /* --filter-list-margin-top: calc( var( --media-query-multiplier ) * 0.8 * 2% ); */
-  --filter-button-border-radius: calc( var( --media-query-multiplier ) * 0.4vmax );
-  --filter-list-height: calc( var( --media-query-multiplier ) * 5% );
-  --filter-list-title-font-size: calc( var( --media-query-multiplier ) * var( --media-query-font-multiplier ) * 18px );
-  --filter-list-copy-font-size: calc( var( --media-query-multiplier ) * var( --media-query-font-multiplier ) * 16px );
-  --filter-list-copy-margin: calc( var( --media-query-multiplier ) * 0.3vw ) calc( var( --media-query-multiplier ) * 0.35vw );
+    --transition-transform-short: transform 0.75s;
+    --media-query-multiplier: 1;
+    --media-query-font-multiplier: 1.2;
+    --tintedSceneFilter: initial;
+    --sceneTintColor: #fff;
+    --default-border-radius: calc( var( --media-query-multiplier ) * 0.75vmax );    
+    --color-list-margin: calc( var( --media-query-multiplier ) * 1% ) 0;
+    --color-list-padding: calc( var( --media-query-multiplier ) * 2% ) calc( var( --media-query-multiplier ) * 2% );    
+    --color-set-wrapper-padding: 0 calc( var( --media-query-multiplier ) * 0.6% );
+    --color-set-transform: transform: scaleY( 1 );  
+    --filter-list-title-padding: calc( var( --media-query-multiplier ) * 0.3vw ) calc( var( --media-query-multiplier ) * 0.35vw );
+    --filter-list-wrapper-padding: 0 0 calc( var( --media-query-multiplier ) * 2% );
+    --filter-list-wrapper-margin-top: calc( var( --media-query-multiplier ) * 1% );
+    /* --filter-list-margin-top: calc( var( --media-query-multiplier ) * 0.8 * 2% ); */
+    --filter-button-border-radius: calc( var( --media-query-multiplier ) * 0.4vmax );
+    --filter-list-height: calc( var( --media-query-multiplier ) * 5% );
+    --filter-list-title-font-size: calc( var( --media-query-multiplier ) * var( --media-query-font-multiplier ) * 18px );
+    --filter-list-copy-font-size: calc( var( --media-query-multiplier ) * var( --media-query-font-multiplier ) * 16px );
+    --filter-list-copy-margin: calc( var( --media-query-multiplier ) * 0.3vw ) calc( var( --media-query-multiplier ) * 0.35vw );
 }
 
 @media  ( min-width: 770px ) and ( min-aspect-ratio: 3/2 ), ( min-width: 770px ) and ( max-aspect-ratio: 2/3 )  {
@@ -239,7 +237,30 @@ body {
 }
 
 /* ------------------ ############ APP STATE - ROOM DETAIL ############ ------------------ */
+/* .state-select-favorites .short-list__wrapper:not( .short-list__wrapper--favorites ) {
+    opacity: 0;
+    transform: scaleY( 0.001);
+} */
+.state-select-favorites .short-list__wrapper:not( .short-list__wrapper--favorites ) {
+    padding: 0;
+}
 
+.state-select-favorites .short-list__wrapper:not( .short-list__wrapper--favorites ) .short-list__content {
+    transform: scaleY( 0.0001 );
+}
+
+/* .scene:hover .short-list__wrapper--favorites,
+.state-select-favorites .short-list__wrapper--favorites {
+    opacity: 1;
+    transform: scaleY( 1 );
+} */
+
+.scene:hover .short-list__wrapper--favorites .short-list__content,
+.state-select-favorites .short-list__wrapper--favorites .short-list__content {
+    transform: scaleY( 1 );
+}
+
+/* 
 
 .state-select-favorites .short-list__wrapper:not( .short-list__content--favorites ) {
   opacity: 0;
@@ -259,4 +280,4 @@ body {
 .scene:hover .short-list__content--favorites .short-list__content,
 .state-select-favorites .short-list__content--favorites .short-list__content {
   transform: scaleY( 1 );
-}
+} */

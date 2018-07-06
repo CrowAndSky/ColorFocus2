@@ -144,8 +144,8 @@
 }
 
 .state-detail-animating .scene__color-info-copy {
-    transition: opacity 0.3s, transform 0.3s;
-    transition-delay: 0s, 0s;
+    transition: opacity 0.15s, transform 1s;
+    transition-delay: 0s, 1s;
 }
 
 .scene__color-info--number {

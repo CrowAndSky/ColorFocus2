@@ -1,9 +1,21 @@
-.title {
+.color-set-wrapper {
+    background-color: #dfdfde;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    padding: var( --color-set-wrapper-padding );
+    width: 33%;
+    
+    /* opacity: 0.05; */
+}
+
+/* .title {
     color: rgb(51, 111, 119);
     font-family: 'Raleway', Arial, Helvetica, sans-serif;
     font-size: 1.5vmax;
     font-weight: 200;
-}
+} */
 
 .short-list__title {
     background-color: rgb(34, 32, 26);
@@ -19,6 +31,10 @@
     font-weight: 300;
     font-size: var( --filter-list-copy-font-size );
     margin: var( --filter-list-copy-margin );
+    overflow: hidden;
+    transform: scaleY( 1 );
+    transition: var( --transition-transform-short );
+    /* transition: font-size var( --transition-time-short ); */
 }
 
 .filter-wrapper {
@@ -29,17 +45,6 @@
     height: 100%;
     overflow: hidden;
 }   
-
-.color-set-wrapper {
-    background-color: #dfdfde;
-    flex-direction: column;
-    justify-content: center;
-    overflow: hidden;
-    padding: var( --color-set-wrapper-padding );
-    width: 33%;
-    
-    /* opacity: 0.05; */
-}
 
 .filter-wrapper {
     height: 37.6%;
@@ -52,25 +57,28 @@
     margin-top: var( --filter-list-wrapper-margin-top );
     opacity: 1;
     padding: var( --filter-list-wrapper-padding );
-    transform: scaleY( 1 );
+    /* transform: scaleY( 1 );
     transition: transform 0.35s;
-    will-change: transform;
+    will-change: transform; */
     width: 100%;
 }
 
 .short-list__content {
     transform: scaleY( 1 );
-    transition: transform 0.35s;
-    will-change: transform;
+    transition: var( --transition-transform-short );
 }
 
 .short-list {
     align-items: center;
     display: flex;
+    flex: 1;
     height: var( --filter-list-height );
     justify-content: center;
     /* margin-top: var( --filter-list-margin-top ); */
     overflow: hidden;
+    transform: scaleY( 1 );
+    transition: var( --transition-transform-short );
+    /* transition: height var( --transition-time-short ); */
     width: 100%;
 }
 

@@ -25,7 +25,7 @@ const colorsByH = [ 0,884, 0,1446, 0,911, ....
         this.allColors = [];
         this.$chipSet = document.querySelectorAll( '#parser-wrapper' );
         this.$colorChips = [].slice.call(document.getElementsByClassName( 'color-list__button' ));
-        this.$body = document.querySelectorAll( 'body' );
+        this.$body = document.querySelectorAll( 'body' )[0];
         this.isStateDetail = false;
 
         this.wireChipHandlers();
@@ -100,7 +100,6 @@ const colorsByH = [ 0,884, 0,1446, 0,911, ....
             
             this.testMatchFitness( nextArrayIndex, startingHue, startSaturation, startLuminisity);
         }
-
         //this.resetColorList();
     }
 
@@ -122,23 +121,54 @@ const colorsByH = [ 0,884, 0,1446, 0,911, ....
     setStateDetail() {
         let _this = this;
 
-        console.log( this.$body);
-
         this.isStateDetail != this.isStateDetail;
 
         this.$body.classList.toggle( 'state-detail' );
 
+        this.$body.classList.toggle( 'state-select-favorites' );
+
         window.setTimeout( ( ) => {
-            //_this.$body.classList.toggle( 'state-detail-animating' );
+            _this.$body.classList.toggle( 'state-detail-animating' );
         }, 1000 );
     }    
 }  // End ColorSet Class
+
+// state-favorites-viewing
+
+// state-favorites-generating
+
+// state-tint-updating
 
 
 document.addEventListener('DOMContentLoaded', function() {
     let colorPathApp = new ColorPathApp();
     //colorPathApp.findMatches( 2849, 331.15384615384613, 41.26984126984129, 50.588235294117645 );
 })
+
+/*\
+|*|  :: wwwwwwwwww ::
+|*|       TO DO:
+|*|  :: wwwwwwwwww ::
+------------------ ### Soonish ### ------------------
+Scaffolding for states
+Dispaly filter boxes by state
+Increase font size at default
+Add dynamic rgba box behind color names and numbers
+
+------------------ ### Medium ### ------------------
+Classes for filter box border radius
+    along with transistions for hiding/showing - or is changing height good enough?
+
+
+
+------------------ ### Long term ### ------------------
+Mask off back room
+Mask off furntiure
+Logic to tint back room (invert of value?)
+Logic to tint furniture (invert of main hue?)
+
+\*/
+
 
 
 /*
