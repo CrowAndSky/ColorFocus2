@@ -95,7 +95,9 @@ ul, li {
 
 /* ------------------ ############ VARIABLES ############ ------------------ */
 body {
-    --transition-transform-short: transform 0.75s;
+    --light-cream: #dfdfde;
+    --dark-brown: rgb(34, 32, 26);
+    --trans-time-short: 1;
     --media-query-multiplier: 1;
     --media-query-font-multiplier: 1.2;
     --tintedSceneFilter: initial;
@@ -236,48 +238,48 @@ body {
   }
 }
 
+/* ------------------ ############ APP STATE - SHORT LISTS ############ ------------------ */
+.state-select-favorites .short-list__wrapper--favorites,
+.state-select-families .short-list__wrapper--families,
+.state-select-hue .short-list__wrapper--hue {
+    transform: scaleY( 1 );
+    /* height: 9%; */
+}
+
+.state-select-favorites .short-list__wrapper--favorites .short-list__content,
+.state-select-families .short-list__wrapper--families .short-list__content,
+.state-select-hue .short-list__wrapper--hue .short-list__content {
+    max-height: 5%;
+    /* transform: scaleY( 1 ); */
+    opacity: 1
+}
+
+.state-select-favorites .short-list__wrapper--favorites .short-list__title,
+.state-select-families .short-list__wrapper--families .short-list__title,
+.state-select-hue .short-list__wrapper--hue .short-list__title {
+    transform: scaleY( 1 );
+    opacity: 1
+}
+
 /* ------------------ ############ APP STATE - ROOM DETAIL ############ ------------------ */
-/* .state-select-favorites .short-list__wrapper:not( .short-list__wrapper--favorites ) {
+.state-detail .scene__room--natural {
     opacity: 0;
-    transform: scaleY( 0.001);
-} */
-.state-select-favorites .short-list__wrapper:not( .short-list__wrapper--favorites ) {
-    padding: 0;
 }
 
-.state-select-favorites .short-list__wrapper:not( .short-list__wrapper--favorites ) .short-list__content {
-    transform: scaleY( 0.0001 );
+.state-detail .scene__color-info-wrapper {
+    transform: scale( 1 );
 }
 
-/* .scene:hover .short-list__wrapper--favorites,
-.state-select-favorites .short-list__wrapper--favorites {
+.state-detail .scene__color-info-copy-wrapper {
+    transform: scaleY( 1 );
+}
+
+.state-detail .scene__color-info-copy {
     opacity: 1;
-    transform: scaleY( 1 );
-} */
-
-.scene:hover .short-list__wrapper--favorites .short-list__content,
-.state-select-favorites .short-list__wrapper--favorites .short-list__content {
-    transform: scaleY( 1 );
+    transform: translateY( 0 );
 }
 
-/* 
-
-.state-select-favorites .short-list__wrapper:not( .short-list__content--favorites ) {
-  opacity: 0;
-  transform: scaleY( 0.001);
+.state-detail-animating .scene__color-info-copy {
+    transition: opacity 0.15s, transform 1s;
+    transition-delay: 0s, 1s;
 }
-
-.state-select-favorites .short-list__wrapper:not( .short-list__content--favorites ) .short-list__content {
-  transform: scaleY( 1000 );
-}
-
-.scene:hover .short-list__content--favorites,
-.state-select-favorites .short-list__content--favorites {
-  opacity: 1;
-  transform: scaleY( 1 );
-}
-
-.scene:hover .short-list__content--favorites .short-list__content,
-.state-select-favorites .short-list__content--favorites .short-list__content {
-  transform: scaleY( 1 );
-} */

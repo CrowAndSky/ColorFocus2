@@ -20,12 +20,12 @@
 	<script src="./js/processed-colors.js" type="text/javascript"></script>
 	<script src="./js/app.js" type="text/javascript"></script>
 
-<div id="app-wrapper" class="">
+<div id="app-wrapper" class="state-select-families">
 	<div class="color-set-wrapper">
 		<!-- <div class="filter-wrapper"> -->
-			<div class="short-list__wrapper">
+			<div class="short-list__wrapper short-list__wrapper--families">
 				<h2 class="short-list__title">
-					Choose a Color Family
+					Step 1: Choose a Color Family
 				</h2>
 				<div class="short-list__content">
 					<p class="short-list__copy">Prefer a color family, neutrals, or whites?</p>
@@ -43,21 +43,33 @@
 				</div>
 			</div>
 
-			<div class="short-list__wrapper">
-				<h2 class="short-list__title">Choose the Brightness</h2>
-				<p class="short-list__copy">How dark or light should the color be?</p>
-				<!-- Improve recommendations      Make the color dark or light -->
-				<ul class="short-list">
-					<li class="short-list__color"><button class="short-list__button" style="background-color:hsl( 220, 50%, 18% );"></button></li>
-					<li class="short-list__color"><button class="short-list__button" style="background-color:hsl( 220, 50%, 34% );"></button></li>
-					<li class="short-list__color short-list__color--active"><button class="short-list__button short-list__button--active" style="background-color:hsl( 220, 50%, 50% );"></button></li>
-					<li class="short-list__color"><button class="short-list__button" style="background-color:hsl( 220, 50%, 66% );"></button></li>
-					<li class="short-list__color"><button class="short-list__button" style="background-color:hsl( 220, 50%, 82% );"></button></li>
-				</ul>
+			<div class="short-list__wrapper short-list__wrapper--hue">
+				<h2 class="short-list__title">
+					Step 2: Choose the Brightness
+				</h2>
+				<div class="short-list__content">
+					<p class="short-list__copy">How dark or light should the color be?</p>
+					<!-- Improve recommendations      Make the color dark or light -->
+					<ul class="short-list">
+						<li class="short-list__color"><button class="short-list__button" style="background-color:hsl( 220, 50%, 18% );"></button></li>
+						<li class="short-list__color"><button class="short-list__button" style="background-color:hsl( 220, 50%, 34% );"></button></li>
+						<li class="short-list__color short-list__color--active"><button class="short-list__button short-list__button--active" style="background-color:hsl( 220, 50%, 50% );"></button></li>
+						<li class="short-list__color"><button class="short-list__button" style="background-color:hsl( 220, 50%, 66% );"></button></li>
+						<li class="short-list__color"><button class="short-list__button" style="background-color:hsl( 220, 50%, 82% );"></button></li>
+					</ul>
+				</div>
 			</div>
 		<!-- </div> -->
 
 		<div class="color-list-wrapper">
+			<h2 class="short-list__title">
+				Step 3: Choose the Brightness
+			</h2>
+			<div class="short-list__content">
+				<p class="short-list__copy">
+					Click suggestions to see them applied to the room scene
+				</p>
+			</div>
 			<ul class="color-list">
 				<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 200, 38%, 33% );"></button></li>
 				<li class="color-list__color"><button class="color-list__button" style="background-color:hsl( 200, 28%, 23% );"></button></li>
@@ -84,9 +96,11 @@
 
 		<div class="short-list__wrapper short-list__wrapper--favorites">
 			<!-- <div class="short-list__content short-list__content--favorites"> -->
-				<h2 class="short-list__title">Your Favorites</h2>
+				<h2 class="short-list__title">
+					Step 4: Last seven Favorites
+				</h2>
 				<div class="short-list__content">
-					<p class="short-list__copy">Last seven colors you favorited</p>
+					<p class="short-list__copy">Click favorites to see them applied to the room scene</p>
 					<!-- Improve recommendations      Make the color dark or light -->
 					<ul class="short-list">
 						<li class="short-list__color"><button class="short-list__button" style="background-color:hsl( 200, 38%, 33% );"></button></li>

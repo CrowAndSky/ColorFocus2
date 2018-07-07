@@ -4,24 +4,18 @@
     overflow: hidden;
     width: 67%;
 
-    /* opacity: 0.1; */
+    opacity: 0.01;
 }
 
 .scene__room {
     background-color: var( --sceneTintColor );
     object-fit: cover;
-
-    /* opacity: 0.01; */
 }
 
 .scene__room--natural {
     opacity: 1;
     transition: opacity 0.9s;
     will-change: opacity;
-}
-
-.state-detail .scene__room--natural {
-    opacity: 0;
 }
 
 .scene__room--tinted {
@@ -47,10 +41,6 @@
 
 .scene__room-wrapper--bottom {
     display: none;
-}
-
-.state-detail .scene__color-info-wrapper {
-    transform: scale( 1 );
 }
 
 .scene__color-info-wrapper {
@@ -109,10 +99,6 @@
     will-change: transform;
 }
 
-.state-detail .scene__color-info-copy-wrapper {
-    transform: scaleY( 1 );
-}
-
 .scene__color-info--coord1 .scene__color-info-copy-wrapper {
     background: linear-gradient(-15deg, rgba( 240, 235, 224, 0.3) 0%, rgba( 240, 235, 224, 1) 42%, rgba( 240, 235, 224, 1) 100%);
 }
@@ -136,16 +122,6 @@
     transition: opacity 0.9s, transform 0.7s;
     transition-delay: 0.3s, 0.3s;
     will-change: opacity transform;
-}
-
-.state-detail .scene__color-info-copy {
-    opacity: 1;
-    transform: translateY( 0 );
-}
-
-.state-detail-animating .scene__color-info-copy {
-    transition: opacity 0.15s, transform 1s;
-    transition-delay: 0s, 1s;
 }
 
 .scene__color-info--number {

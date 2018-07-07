@@ -1,18 +1,20 @@
 .color-list-wrapper {
-    background-color: #fff;
+    background-color: var( --dark-brown );
     border-radius: var( --default-border-radius );
     height: 61.3%;
     margin: var( --color-list-margin );
-    padding: var( --color-list-padding );
+    /* padding: var( --color-list-padding ); */
     overflow: hidden;
     width: 100%;
 }
 
 .color-list {
+    background-color: #fff;
     display: grid;
     grid-gap: 0.15vw;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     height: 100%;
+    padding: var( --color-list-padding );
     width: 100%;
 }
 

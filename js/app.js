@@ -23,7 +23,8 @@ const colorsByH = [ 0,884, 0,1446, 0,911, ....
     constructor( colorSet ) {
         this.chips = '';
         this.allColors = [];
-        this.$chipSet = document.querySelectorAll( '#parser-wrapper' );
+        // this.$chipSet = document.querySelectorAll( '#parser-wrapper' );
+        this.$appWrapper = document.querySelectorAll( '#app-wrapper' )[ 0 ];
         this.$colorChips = [].slice.call(document.getElementsByClassName( 'color-list__button' ));
         this.$body = document.querySelectorAll( 'body' )[0];
         this.isStateDetail = false;
@@ -123,12 +124,16 @@ const colorsByH = [ 0,884, 0,1446, 0,911, ....
 
         this.isStateDetail != this.isStateDetail;
 
-        this.$body.classList.toggle( 'state-detail' );
+        // this.$appWrapper.classList.toggle( 'state-detail' );
 
-        this.$body.classList.toggle( 'state-select-favorites' );
+        this.$appWrapper.classList.toggle( 'state-select-hue' );
+
+        this.$appWrapper.classList.toggle( 'state-select-families' );
+
+        // this.$appWrapper.classList.toggle( 'state-select-favorites' );
 
         window.setTimeout( ( ) => {
-            _this.$body.classList.toggle( 'state-detail-animating' );
+            // _this.$appWrapper.classList.toggle( 'state-detail-animating' );
         }, 1000 );
     }    
 }  // End ColorSet Class
